@@ -1,11 +1,11 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1773340532
+::res://::1773516892
 icon.svg::CompressedTexture2D::4333877109766545987::1771885050::1771885050::1::::<><><>0<>0<>ba96aaf1ef1f20af962da71d014c6161<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 README.md::TextFile::-1::1771885050::0::1::::<><><>0<>0<><>::
 node_2d.gd::GDScript::8177595374719921951::1773340532::0::1::::<>Node2D<><>0<>0<><>::
 wheel.gd::GDScript::2662553403894044773::1773279648::0::1::::<>RefCounted<><>0<>0<><>::
-wheel.tscn::PackedScene::5994709792727059679::1773279950::0::1::::<><><>0<>0<><>::uid://dorj2ia4k1epb::::res://node_2d.gd<>uid://daqwh5ej6rprc::::res://assests/Tire.png<>uid://bt7j3mdh46x3q::::res://assests/red-down-arrow.png
-::res://assests/::1773516875
+wheel.tscn::PackedScene::5994709792727059679::1773516892::0::1::::<><><>0<>0<><>::uid://dorj2ia4k1epb::::res://node_2d.gd<>uid://daqwh5ej6rprc::::res://assests/Tire.png<>uid://bt7j3mdh46x3q::::res://assests/red-down-arrow.png
+::res://assests/::1773517036
 Blue F1 Car.png::CompressedTexture2D::4699010578275876216::1772138186::1772138241::1::::<><><>0<>0<>d0f90adc8b2c6c0f48a89cb4d00dd9bb<>res://.godot/imported/Blue F1 Car.png-910dd88850b410f251336ea189566b7e.ctex::
 Green Nascar.png::CompressedTexture2D::2099211901111296853::1772138186::1772138241::1::::<><><>0<>0<>2cd0128bfaef47087f7e5ab94bfc92e6<>res://.godot/imported/Green Nascar.png-03678e3d6be671a78339c403f5a98ec7.ctex::
 Monaco Track Empty.png::CompressedTexture2D::6976876574023050069::1773094032::1773094037::1::::<><><>0<>0<>f39c1fb5dd28ede084f41f993ae7456e<>res://.godot/imported/Monaco Track Empty.png-0e189f4cb7668000ebd0b24c8d1de86b.ctex::
@@ -14,5 +14,6 @@ Orange F1 Car.png::CompressedTexture2D::8871628613968100744::1772138186::1772138
 README.md::TextFile::-1::1771885050::0::1::::<><><>0<>0<><>::
 red-down-arrow.png::CompressedTexture2D::3786665891382527116::1773277503::1773277540::1::::<><><>0<>0<>935ce8f7164b01510ad938b680d3d757<>res://.godot/imported/red-down-arrow.png-7b703727e1aaea7dd79c0a82ff3d5837.ctex::
 Tire.png::CompressedTexture2D::7193641951873209368::1773278414::1773278567::1::::<><><>0<>0<>1da4405624594db5a0f32832f36319cd<>res://.godot/imported/Tire.png-9deccc69a4e50b421648cf067cc427a7.ctex::
+Wheel Arrow.png::CompressedTexture2D::1431931971532463885::1773517026::1773517041::1::::<><><>0<>0<>3e5363e375f3414b39b88e196f371d70<>res://.godot/imported/Wheel Arrow.png-95c1323034d7ff2cb873c0ba98616f98.ctex::
 Wheel.png::CompressedTexture2D::6646235793353957493::1773516789::1773516886::1::::<><><>0<>0<>1f0a4a78c907bcee359a4f234a1c89e3<>res://.godot/imported/Wheel.png-20ee2a51312f21d44d46e4746a87f43a.ctex::
 Yellow Nascar.png::CompressedTexture2D::3448331623867637963::1772138186::1772138241::1::::<><><>0<>0<>7a117a12b2f41ece8f660635d33d229f<>res://.godot/imported/Yellow Nascar.png-c93c360fe03dd48dcf90ca1d7ddff9d7.ctex::

@@ -7,12 +7,14 @@ func _ready():
 
 @export var revolutions: int = 10
 @export var spin_time: float = 12.0 # seconds the wheel spins
-@export var game_count: int = 8 # number of possible mini games
+@export var game_count: int = 4 # number of possible mini games
 
 var chosen_game: int = 1
  
 func spin_the_wheel():
-	chosen_game = randi() % game_count # randomly selects a game within the scope
+	# change next line to chosen_game = 0 to make it land on pong every spin
+	#chosen_game = randi() % game_count # randomly selects a game within the scope
+	chosen_game = 0
 	# TAU is equal to 2 pi (a full circle/360 degrees)
 	var angle = TAU / game_count
 	var target_rotation = chosen_game * angle
