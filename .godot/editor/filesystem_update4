@@ -1,0 +1,6 @@
+res://pong/logic/ceiling_floor.gd
+res://pong/logic/paddle.gd
+res://pong/pong.tscn
+res://assests/pong.tscn
+res://pong/logic/wall.gd
+res://main.tscn
