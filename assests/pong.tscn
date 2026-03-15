@@ -1,0 +1,153 @@
+[gd_scene load_steps=16 format=3 uid="uid://666g0oivhsph"]
+
+[ext_resource type="Script" uid="uid://cut2qf36c2lug" path="res://pong/logic/paddle.gd" id="1_1k8r3"]
+[ext_resource type="Script" uid="uid://dvxquxbv6hgvg" path="res://pong/logic/game.gd" id="1_game"]
+[ext_resource type="Script" uid="uid://cxi5frheapr5f" path="res://pong/logic/ball.gd" id="3_kds7i"]
+[ext_resource type="Script" uid="uid://cab2xpg4q3qio" path="res://pong/logic/wall.gd" id="4_2oo65"]
+[ext_resource type="Script" uid="uid://crgpodbat3yhq" path="res://pong/logic/ceiling_floor.gd" id="5_u6twc"]
+[ext_resource type="Texture2D" uid="uid://454yiubkxxs4" path="res://assests/Green Nascar.png" id="tex_green"]
+[ext_resource type="Texture2D" uid="uid://2cnsornkguc2" path="res://assests/Wheel.png" id="tex_wheel"]
+[ext_resource type="Texture2D" uid="uid://bpenru37hqstn" path="res://assests/Yellow Nascar.png" id="tex_yellow"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oumu0"]
+size = Vector2(78, 152)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f7obv"]
+size = Vector2(79, 149)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kds7i"]
+radius = 13.5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_teprw"]
+size = Vector2(37, 641)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rightwall"]
+size = Vector2(37, 641)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_floor"]
+size = Vector2(2400, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ceiling"]
+size = Vector2(2400, 40)
+
+[node name="Pong" type="Node2D"]
+script = ExtResource("1_game")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="LeftScoreLabel" type="Label" parent="UI"]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 80.0
+offset_bottom = 60.0
+theme_override_font_sizes/font_size = 32
+text = "0"
+
+[node name="RightScoreLabel" type="Label" parent="UI"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -80.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 60.0
+theme_override_font_sizes/font_size = 32
+text = "0"
+
+[node name="WinnerLabel" type="Label" parent="UI"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -25.0
+offset_right = 120.0
+offset_bottom = 25.0
+theme_override_font_sizes/font_size = 48
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Left" type="Area2D" parent="."]
+position = Vector2(60, 324)
+collision_layer = 2
+script = ExtResource("1_1k8r3")
+
+[node name="Collision" type="CollisionShape2D" parent="Left"]
+position = Vector2(3, 4)
+shape = SubResource("RectangleShape2D_oumu0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Left"]
+scale = Vector2(0.034867182, 0.032343753)
+texture = ExtResource("tex_green")
+
+[node name="Right" type="Area2D" parent="."]
+position = Vector2(1110, 324)
+collision_layer = 2
+script = ExtResource("1_1k8r3")
+
+[node name="Collision" type="CollisionShape2D" parent="Right"]
+position = Vector2(2.5, 2.5)
+shape = SubResource("RectangleShape2D_f7obv")
+
+[node name="Sprite2D" type="Sprite2D" parent="Right"]
+scale = Vector2(0.034867182, 0.032343753)
+texture = ExtResource("tex_yellow")
+
+[node name="Ball" type="Area2D" parent="."]
+position = Vector2(624, 324)
+script = ExtResource("3_kds7i")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ball"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("tex_wheel")
+
+[node name="Collision" type="CollisionShape2D" parent="Ball"]
+shape = SubResource("CircleShape2D_kds7i")
+
+[node name="LeftWall" type="Area2D" parent="."]
+position = Vector2(0, 324)
+script = ExtResource("4_2oo65")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall"]
+position = Vector2(6.5, -13.5)
+shape = SubResource("RectangleShape2D_teprw")
+
+[node name="RightWall" type="Area2D" parent="."]
+position = Vector2(1170, 324)
+script = ExtResource("4_2oo65")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall"]
+position = Vector2(-6.5, -13.5)
+shape = SubResource("RectangleShape2D_rightwall")
+
+[node name="Sprite2D" type="Sprite2D" parent="RightWall"]
+
+[node name="Floor" type="Area2D" parent="."]
+position = Vector2(624, 642)
+script = ExtResource("5_u6twc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(0, 20)
+shape = SubResource("RectangleShape2D_floor")
+
+[node name="Ceiling" type="Area2D" parent="."]
+position = Vector2(624, 0)
+script = ExtResource("5_u6twc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ceiling"]
+position = Vector2(0, -20)
+shape = SubResource("RectangleShape2D_ceiling")
+
+[node name="Separator" type="Sprite2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(592, 292)
+
+[connection signal="area_entered" from="Left" to="Left" method="_on_area_entered"]
+[connection signal="area_entered" from="Right" to="Right" method="_on_area_entered"]
+[connection signal="area_entered" from="LeftWall" to="LeftWall" method="_on_wall_area_entered"]
+[connection signal="area_entered" from="RightWall" to="RightWall" method="_on_wall_area_entered"]
+[connection signal="area_entered" from="Floor" to="Floor" method="_on_area_entered"]
+[connection signal="area_entered" from="Ceiling" to="Ceiling" method="_on_area_entered"]
