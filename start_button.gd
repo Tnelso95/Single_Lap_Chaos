@@ -15,8 +15,8 @@ func _on_pressed() -> void:
 	var button_press_tween: Tween = create_tween()
 	button_press_tween.tween_property(self,"scale", pressed_scale, 0.06).set_trans(Tween.TRANS_SINE)
 	button_press_tween.tween_property(self,"scale", hover_scale, 0.12).set_trans(Tween.TRANS_SINE)
-	#get_tree().change_scene_to_file("res://character_select.tscn")
-	get_tree().change_scene_to_file("res://leaderboard.tscn")
+	get_tree().change_scene_to_file("res://character_select.tscn")
+	#get_tree().change_scene_to_file("res://leaderboard.tscn")
 
 func _button_enter() -> void:
 	create_tween().tween_property(self, "scale", hover_scale, 0.25).set_trans(Tween.TRANS_SINE)

@@ -65,26 +65,42 @@ func p2NextButton():
 	updateP2()
 	
 func p2PreviousButton():
-	p2Index = (p2Index - 1 + sprites.size) % sprites.size
+	p2Index = (p2Index - 1 + sprites.size()) % sprites.size()
 	updateP2()
 	
 func p1Selection():
-	GlobalData.p1Car = sprites[p1Index]
+	if sprites[p1Index] == preload("res://assests/Blue F1 Car.png"):
+			GlobalData.p1Car = "bluef1"
+	if sprites[p1Index] == preload("res://assests/Orange F1 Car.png"):
+			GlobalData.p1Car = "orangef1"
+	if sprites[p1Index] == preload("res://assests/Green Nascar.png"):
+			GlobalData.p1Car = "greennascar"
+	if sprites[p1Index] == preload("res://assests/Yellow Nascar.png"):
+			GlobalData.p1Car = "yellownascar"
 	$PlayerOneNext.disabled = true
 	$PlayerOnePrevious.disabled = true
 	p1Display.texture = grayed_sprites[p1Index]
 	sprites.pop_at(p1Index)
 	if GlobalData.p2Car != null:
-		get_tree().change_scene_to_file("res://wheel.tscn")
+		#get_tree().change_scene_to_file("res://wheel.tscn")
+		get_tree().change_scene_to_file("res://leaderboard.tscn")
 		
 func p2Selection():
-	GlobalData.p2Car = sprites[p2Index]
+	if sprites[p2Index] == preload("res://assests/Blue F1 Car.png"):
+			GlobalData.p2Car = "bluef1"
+	if sprites[p2Index] == preload("res://assests/Orange F1 Car.png"):
+			GlobalData.p2Car = "orangef1"
+	if sprites[p2Index] == preload("res://assests/Green Nascar.png"):
+			GlobalData.p2Car = "greennascar"
+	if sprites[p2Index] == preload("res://assests/Yellow Nascar.png"):
+			GlobalData.p2Car = "yellownascar"
 	$PlayerTwoNext.disabled = true
 	$PlayerTwoPrevious.disabled = true
 	p1Display.texture = grayed_sprites[p1Index]
 	sprites.pop_at(p2Index)
 	if GlobalData.p1Car != null:
-		get_tree().change_scene_to_file("res://wheel.tscn")
+		#get_tree().change_scene_to_file("res://wheel.tscn")
+		get_tree().change_scene_to_file("res://leaderboard.tscn")
 	
 	
 func updateP1():
@@ -98,10 +114,3 @@ func updateP2():
 		p2Display.texture = sprites[p2Index]
 	else:
 		p2Display.texture = sprites[p2Index % 3]
-
-
-#func _on_player_one_select_pressed() -> void:
-#	GlobalData.p1Car = sprites[p1Index]
-#	print(GlobalData.plCar)
-#	if GlobalData.p2Car != "":
-#		get_tree().change_scene_to_file("res://wheel.tscn")

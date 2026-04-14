@@ -5,15 +5,41 @@ extends Node2D
 @onready var p1car = p1_path_follow.get_node("P1Car")
 @onready var p2_path_follow = $P2Path2D/P2PathFollow2D
 @onready var p2car = p2_path_follow.get_node("P2Car")
-#@onready var trail = $Trail1
-
-var last_trail : Vector2 = Vector2.ZERO
-var spacing = 4.0
 
 
 func _ready():
-	#last_trail = to_local(car.global_position)
-	#trail.add_point(last_trail)
+	var blue_f1 = preload("res://assests/Blue F1 Car.png")
+	var orange_f1 = preload("res://assests/Orange F1 Car.png")
+	var green_nascar = preload("res://assests/Green Nascar.png")
+	var yellow_nascar = preload("res://assests/Yellow Nascar.png")
+	print(blue_f1)
+	print(orange_f1)
+	print(green_nascar)
+	print(yellow_nascar)
+	if GlobalData.p1Car == "bluef1":
+		$P1Path2D/P1PathFollow2D/P1Car.texture = blue_f1
+		$P1Path2D/P1PathFollow2D/P1Car.scale = Vector2(.01,.01)
+	if GlobalData.p2Car == "bluef1":
+		$P2Path2D/P2PathFollow2D/P2Car.texture = blue_f1
+		$P2Path2D/P2PathFollow2D/P2Car.scale = Vector2(.01,.01)
+	if GlobalData.p1Car == "orangef1":
+		$P1Path2D/P1PathFollow2D/P1Car.texture = orange_f1
+		$P1Path2D/P1PathFollow2D/P1Car.scale = Vector2(.01,.01)
+	if GlobalData.p2Car == "orangef1":
+		$P2Path2D/P2PathFollow2D/P2Car.texture = orange_f1
+		$P2Path2D/P2PathFollow2D/P2Car.scale = Vector2(.01,.01)
+	if GlobalData.p1Car == "greennascar":
+		$P1Path2D/P1PathFollow2D/P1Car.texture = green_nascar
+		$P1Path2D/P1PathFollow2D/P1Car.scale = Vector2(.007,.007)
+	if GlobalData.p2Car == "greennascar":
+		$P2Path2D/P2PathFollow2D/P2Car.texture = green_nascar
+		$P2Path2D/P2PathFollow2D/P2Car.scale = Vector2(.007,.007)
+	if GlobalData.p1Car == "yellownascar":
+		$P1Path2D/P1PathFollow2D/P1Car.texture = yellow_nascar
+		$P1Path2D/P1PathFollow2D/P1Car.scale = Vector2(.007,.007)
+	if GlobalData.p2Car == "yellownascar":
+		$P2Path2D/P2PathFollow2D/P2Car.texture = yellow_nascar
+		$P2Path2D/P2PathFollow2D/P2Car.scale = Vector2(.007,.007)
 	update_position()
 
 func update_position():
@@ -37,22 +63,3 @@ func update_position():
 		p2progress,
 		p2seconds
 	)
-	#path_follow.progress_ratio = progress
-	
-#func _process(_delta):
-#	if car == null or trail == null:
-#		return
-#	var pos = to_local(car.global_position)
-#	if last_trail == Vector2.ZERO:
-#		last_trail = pos
-#		trail.add_point(pos)
-		#last_trail = pos
-		#		return
-	#if last_trail.distance_to(pos) >= spacing:
-	#	trail.add_point(pos)
-	#	last_trail = pos
-	#trail.add_point(trail.to_local(car.global_position))
-	
-
-	
-	
