@@ -1,20 +1,29 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1775510482
+::res://::1776128631
 blue_f_1.tscn::PackedScene::3495072222161943523::1774311190::0::1::::<><><>0<>0<><>::
 character_select.tscn::PackedScene::3114999149885358898::1775091306::0::1::::<><><>0<>0<><>::uid://couwx1aos2orw::::res://character_select_menu.gd<>uid://cu4771ss0y6gp::::res://assests/Selection Screen.png
-character_select_menu.gd::GDScript::5798150946768857544::1775092754::0::1::::<>Node2D<><>0<>0<><>::
-global_data.gd::GDScript::5808755714590868101::1775092096::0::1::::<>Node<><>0<>0<><>::
+character_select_menu.gd::GDScript::5798150946768857544::1775510799::0::1::::<>Node2D<><>0<>0<><>::
+global_data.gd::GDScript::5808755714590868101::1775514242::0::1::::<>Node<><>0<>0<><>::
 green_nascar.tscn::PackedScene::1236229138676358984::1774311197::0::1::::<><><>0<>0<><>::
 icon.svg::CompressedTexture2D::4333877109766545987::1771885050::1771885050::1::::<><><>0<>0<>ba96aaf1ef1f20af962da71d014c6161<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+leaderboard.gd::GDScript::5195195967754737099::1775683585::0::1::::<>Node2D<><>0<>0<><>::
+leaderboard.tscn::PackedScene::9115666787797898015::1775762763::0::1::::<><><>0<>0<><>::uid://b16gb83i6eyns::::res://assests/black-screen.png<>uid://cgauebb6yq8bf::::res://leaderboard.gd<>uid://bssjytx4y3dbd::::res://assests/Monaco Track Empty.png<>uid://bpenru37hqstn::::res://assests/Yellow Nascar.png
 main.tscn::PackedScene::907040823614235801::1773775898::0::1::::<><><>0<>0<><>::uid://j4o11q5n8ow8::::res://node_2d.gd<>uid://pi5x3dhw5fm5::::res://assests/Wheel Arrow.png<>uid://2cnsornkguc2::::res://assests/Wheel.png
 node_2d.gd::GDScript::692464407856006237::1773774703::0::1::::<>Node2D<><>0<>0<><>::
 orange_f_1.tscn::PackedScene::741208197049287594::1774311210::0::1::::<><><>0<>0<><>::
 README.md::TextFile::-1::1771885050::0::1::::<><><>0<>0<><>::
-start_button.gd::GDScript::5628128842636125466::1774478872::0::1::::<>TextureButton<><>0<>0<><>::
+start_button.gd::GDScript::5628128842636125466::1776128631::0::1::::<>TextureButton<><>0<>0<><>::
 start_screen.tscn::PackedScene::1659702633580340568::1775079482::0::1::::<><><>0<>0<><>::uid://ij3bojt300lv::::res://assests/NEW Start Screen.png<>uid://d35ny47xxwrcg::::res://assests/Start Button.png<>uid://cmgkpvqltnugg::::res://start_button.gd
 wheel.tscn::PackedScene::5158373979277077315::1773776060::0::1::::<><><>0<>0<><>::uid://j4o11q5n8ow8::::res://node_2d.gd<>uid://pi5x3dhw5fm5::::res://assests/Wheel Arrow.png<>uid://2cnsornkguc2::::res://assests/Wheel.png
 yellow_nascar.tscn::PackedScene::239617386011196723::1774311217::0::1::::<><><>0<>0<><>::
-::res://assests/::1775092428
+::res://addons/::1775762011
+::res://addons/trail_2d/::1775762011
+icon.svg::CompressedTexture2D::961055436771160085::1775762011::1775762011::1::::<><><>0<>0<>8f1b8f6fe68d3f4328ddcd6d9193266a<>res://.godot/imported/icon.svg-66a4d9de72e94709c46cc8d517aa7993.ctex::
+plugin.cfg::TextFile::-1::1775762011::0::1::::<><><>0<>0<><>::
+test.tscn::PackedScene::3600885721114100154::1775762011::0::1::::<><><>0<>0<><>::res://addons/trail_2d/trail_2d.gd
+trail_2d.gd::GDScript::6532348828622861264::1775762011::0::1::::<>Line2D<><>0<>0<><>::
+trail_2d_plugin.gd::GDScript::7478856451021629544::1775762011::0::1::::<>EditorPlugin<><>0<>1<><>::
+::res://assests/::1776128713
 black-screen.png::CompressedTexture2D::4275694193338473404::1774312717::1774312732::1::::<><><>0<>0<>d97e47aeb46291f085f1b4f60d7c73fc<>res://.godot/imported/black-screen.png-9a6bdaf92d70f026550213b4689cb169.ctex::
 Blue F1 Car.png::CompressedTexture2D::4699010578275876216::1775090613::1775090614::1::::<><><>0<>0<>d0f90adc8b2c6c0f48a89cb4d00dd9bb<>res://.godot/imported/Blue F1 Car.png-910dd88850b410f251336ea189566b7e.ctex::
 gray_bluef1.png::CompressedTexture2D::1775866942081091145::1775092363::1775092428::1::::<><><>0<>0<>f8b82c7b8e746fdf368871e6041d8812<>res://.godot/imported/gray_bluef1.png-bc8d2d6c591f0f33f66534346f8b67fe.ctex::
@@ -23,6 +32,7 @@ gray_orangef1.png::CompressedTexture2D::5735731784688911291::1775092394::1775092
 gray_yellownascar.png::CompressedTexture2D::2916205125787821005::1775092425::1775092428::1::::<><><>0<>0<>1854e424bd8e909234b69eb6c87d7b22<>res://.godot/imported/gray_yellownascar.png-1e61e8165ed9b585a2bcd9ea3701bf81.ctex::
 Green Nascar.png::CompressedTexture2D::2099211901111296853::1775090816::1775090821::1::::<><><>0<>0<>2cd0128bfaef47087f7e5ab94bfc92e6<>res://.godot/imported/Green Nascar.png-03678e3d6be671a78339c403f5a98ec7.ctex::
 grey_box.jpg::CompressedTexture2D::2111288740154137583::1774313255::1774313267::1::::<><><>0<>0<>1c6f2cbb56094c5880128f8dac9dd481<>res://.godot/imported/grey_box.jpg-7976e0ba3558112e667f7b8284e68ebc.ctex::
+map_with_background.png::CompressedTexture2D::7141383556125342730::1776128687::1776128715::1::::<><><>0<>0<>a074a2c7d30cb0b4728538709ab2a455<>res://.godot/imported/map_with_background.png-251a99725af780edabfe4dff1593a18d.ctex::
 Monaco Track Empty.png::CompressedTexture2D::3687569015564333297::1773094032::1773775898::1::::<><><>0<>0<>9aab384263e09700d1425bcdd481dda1<>res://.godot/imported/Monaco Track Empty.png-0e189f4cb7668000ebd0b24c8d1de86b.ctex::
 Monaco Track Full.png::CompressedTexture2D::3961304493259568186::1773094032::1773775898::1::::<><><>0<>0<>1e44ce681bc2b22ddb7461cf138c62d2<>res://.godot/imported/Monaco Track Full.png-c9caffa773f191b5fa079540ce90f4dc.ctex::
 NEW Start Screen.png::CompressedTexture2D::581792760614007063::1775079393::1775079460::1::::<><><>0<>0<>1648c3de06f55e03c93e0f01c4ac4a65<>res://.godot/imported/NEW Start Screen.png-f4c35983e1f4d8c67850ced1534d2d2d.ctex::
