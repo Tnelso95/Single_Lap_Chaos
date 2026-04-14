@@ -1,4 +1,4 @@
+res://character_select_menu.gd
+res://leaderboard.gd
 res://start_button.gd
 res://leaderboard.tscn
-res://global_data.gd
-res://leaderboard.gd

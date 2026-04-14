@@ -65,7 +65,7 @@ func p2NextButton():
 	updateP2()
 	
 func p2PreviousButton():
-	p2Index = (p2Index - 1 + sprites.size) % sprites.size
+	p2Index = (p2Index - 1 + sprites.size()) % sprites.size()
 	updateP2()
 	
 func p1Selection():
