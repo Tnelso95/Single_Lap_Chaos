@@ -12,10 +12,6 @@ func _ready():
 	var orange_f1 = preload("res://assests/Orange F1 Car.png")
 	var green_nascar = preload("res://assests/Green Nascar.png")
 	var yellow_nascar = preload("res://assests/Yellow Nascar.png")
-	print(blue_f1)
-	print(orange_f1)
-	print(green_nascar)
-	print(yellow_nascar)
 	if GlobalData.p1Car == "bluef1":
 		$P1Path2D/P1PathFollow2D/P1Car.texture = blue_f1
 		$P1Path2D/P1PathFollow2D/P1Car.scale = Vector2(.01,.01)
@@ -47,6 +43,9 @@ func update_position():
 	var p2progress = GlobalData.p2Points / 1000.0
 	var p1seconds = GlobalData.p1Points / 40.0
 	var p2seconds = GlobalData.p2Points / 40.0
+	
+	$ProgressBarP1.value = GlobalData.p1Points / 10.0
+	$ProgressBarP2.value = GlobalData.p2Points / 10.0
 	
 	var p1tween = create_tween()
 	p1tween.tween_property(

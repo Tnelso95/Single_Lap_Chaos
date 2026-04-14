@@ -1,3 +1,6 @@
+TextureProgressBar
+ProgressBar
+TextEdit
 Sprite2D
 PathFollow2D
 Path2D
@@ -10,5 +13,3 @@ Camera2D
 Button
 CanvasLayer
 TextureRect
-TextureButton
-Node2D
