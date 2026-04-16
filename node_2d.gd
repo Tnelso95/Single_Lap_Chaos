@@ -7,15 +7,14 @@ func _ready():
 
 @export var revolutions: int = 10
 @export var spin_time: float = 12.0 # seconds the wheel spins
-@export var game_count: int = 4 # number of possible mini games
+@export var game_count: int = 2 # number of available mini games
 
 var chosen_game: int = 1
 
 
 func spin_the_wheel():
-	# change next line to chosen_game = 0 to make it land on pong every spin
-	#chosen_game = randi() % game_count # randomly selects a game within the scope
-	chosen_game = 0
+	# Randomly selects an available mini game.
+	chosen_game = randi() % game_count
 	# TAU is equal to 2 pi (a full circle/360 degrees)
 	var angle = TAU / game_count
 	var target_rotation = chosen_game * angle
@@ -32,4 +31,7 @@ func spin_the_wheel():
 
 func spin_finished():
 	print("Game chosen: ", chosen_game)
-	get_tree().change_scene_to_file("res://assests/pong.tscn")
+	if chosen_game == 0:
+		get_tree().change_scene_to_file("res://assests/pong.tscn")
+	else:
+		get_tree().change_scene_to_file("res://photo_memory/photo_memory.tscn")
