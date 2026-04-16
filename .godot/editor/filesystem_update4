@@ -1,6 +1,3 @@
-res://pong/logic/ceiling_floor.gd
-res://pong/logic/paddle.gd
-res://pong/pong.tscn
-res://assests/pong.tscn
-res://pong/logic/wall.gd
-res://main.tscn
+res://node_2d.gd
+res://photo_memory/logic/photo_memory.gd
+res://photo_memory/photo_memory.tscn
