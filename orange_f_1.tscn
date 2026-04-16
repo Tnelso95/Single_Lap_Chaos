@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://ktbuc4n0wbpi"]
+[gd_scene load_steps=0 format=3 uid="uid://ktbuc4n0wbpi"]
 
 [node name="OrangeF1" type="TextureButton"]
 offset_right = 40.0

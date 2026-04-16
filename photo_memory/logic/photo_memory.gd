@@ -23,6 +23,8 @@ const PLAYER_TWO_KEYS := {
 	KEY_DOWN: Direction.DOWN,
 	KEY_LEFT: Direction.LEFT,
 }
+const LEADERBOARD_SCENE_PATH := "res://leaderboard.tscn"
+const RETURN_DELAY := 2.0
 
 @export var step_display_time: float = 0.7
 @export var step_pause_time: float = 0.2
@@ -41,6 +43,7 @@ var p1_failed := false
 var p2_failed := false
 var p1_done := false
 var p2_done := false
+var returning_to_leaderboard := false
 
 @onready var p1_car_sprite: Sprite2D = $PlayerOneCar
 @onready var p2_car_sprite: Sprite2D = $PlayerTwoCar
@@ -55,6 +58,7 @@ var p2_done := false
 
 func _ready() -> void:
 	randomize()
+	_apply_car_visuals()
 	prompt_label.visible = false
 	_start_new_game()
 
@@ -62,7 +66,7 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo:
 		if game_over and (event.keycode == KEY_ENTER or event.keycode == KEY_KP_ENTER):
-			_start_new_game()
+			_return_to_leaderboard()
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -201,15 +205,15 @@ func _resolve_round_state() -> void:
 		return
 
 	if p1_failed and p2_failed:
-		_end_game("Tie! Both players missed the chain.")
+		_end_game(0, "Tie! Both players missed the chain.")
 		return
 
 	if p1_failed and p2_done:
-		_end_game("Player 2 wins! Player 1 missed.")
+		_end_game(2, "Player 2 wins! Player 1 missed.")
 		return
 
 	if p2_failed and p1_done:
-		_end_game("Player 1 wins! Player 2 missed.")
+		_end_game(1, "Player 1 wins! Player 2 missed.")
 		return
 
 	if p1_done and p2_done:
@@ -230,10 +234,34 @@ func _begin_next_round_after_delay() -> void:
 		_start_next_round()
 
 
-func _end_game(result_text: String) -> void:
+func _end_game(winner: int, result_text: String) -> void:
 	round_active = false
 	showing_sequence = false
 	game_over = true
+	if winner != 0:
+		GlobalData.award_win(winner)
 	result_label.visible = true
 	result_label.text = result_text
-	prompt_label.text = "Press Enter to play again"
+	prompt_label.text = "Returning to leaderboard..."
+	_queue_leaderboard_return()
+
+func _queue_leaderboard_return() -> void:
+	await get_tree().create_timer(RETURN_DELAY).timeout
+	_return_to_leaderboard()
+
+func _return_to_leaderboard() -> void:
+	if returning_to_leaderboard:
+		return
+	returning_to_leaderboard = true
+	get_tree().change_scene_to_file(LEADERBOARD_SCENE_PATH)
+
+func _apply_car_visuals() -> void:
+	_apply_car_visual(p1_car_sprite, GlobalData.p1Car)
+	_apply_car_visual(p2_car_sprite, GlobalData.p2Car)
+
+func _apply_car_visual(car_sprite: Sprite2D, car_id: Variant) -> void:
+	var texture_path := GlobalData.get_car_texture_path(car_id)
+	if texture_path.is_empty():
+		return
+	car_sprite.texture = load(texture_path)
+	car_sprite.scale = GlobalData.get_car_photo_memory_scale(car_id)

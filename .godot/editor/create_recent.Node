@@ -1,11 +1,10 @@
+CollisionShape2D
+Sprite2D
 TextureProgressBar
 ProgressBar
 TextEdit
-Sprite2D
 PathFollow2D
 Path2D
-Trail2D
-CollisionShape2D
 CharacterBody2D
 Node
 Line2D

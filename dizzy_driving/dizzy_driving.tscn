@@ -1,0 +1,536 @@
+[gd_scene load_steps=8 format=3 uid="uid://bwrbx2kuhreko"]
+
+[ext_resource type="Script" uid="uid://th4ox02leh13" path="res://dizzy_driving/dizzy_driving.gd" id="1_game"]
+[ext_resource type="Texture2D" uid="uid://bssjytx4y3dbd" path="res://assests/Monaco Track Empty.png" id="2_bg"]
+[ext_resource type="PackedScene" path="res://dizzy_driving/dizzy_car.tscn" id="4_car"]
+[ext_resource type="Texture2D" uid="uid://b16gb83i6eyns" path="res://assests/black-screen.png" id="4_kyjxb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_border"]
+size = Vector2(80.18836, 19.343979)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dyi5b"]
+size = Vector2(60.0636, 15.242615)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_finish"]
+size = Vector2(170, 28)
+
+[node name="DizzyDriving" type="Node2D"]
+script = ExtResource("1_game")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(371.99997, 324)
+scale = Vector2(1.7, 1.7)
+texture = ExtResource("2_bg")
+
+[node name="PlayerOneCar" parent="." instance=ExtResource("4_car")]
+position = Vector2(386, 300)
+rotation = -5.417502
+scale = Vector2(0.1, 0.1)
+use_player_one_controls = true
+
+[node name="PlayerTwoCar" parent="." instance=ExtResource("4_car")]
+position = Vector2(366.99997, 310)
+rotation = 0.80808747
+scale = Vector2(0.1, 0.1)
+
+[node name="Borders" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders"]
+position = Vector2(334, 275.00003)
+rotation = 2.3335052
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Borders"]
+position = Vector2(332.99994, 324)
+rotation = 0.5235988
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Borders"]
+position = Vector2(374, 379)
+rotation = 1.0471976
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Borders"]
+position = Vector2(411, 446.99997)
+rotation = 1.0471976
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Borders"]
+position = Vector2(451.00006, 520)
+rotation = 1.0471976
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Borders"]
+position = Vector2(505.00006, 569.00006)
+rotation = 0.41887903
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Borders"]
+position = Vector2(581, 601.00006)
+rotation = 0.41887903
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Borders"]
+position = Vector2(645, 613)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Borders"]
+position = Vector2(730, 613)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="Borders"]
+position = Vector2(813, 604)
+rotation = -0.2617994
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="Borders"]
+position = Vector2(873, 575.99994)
+rotation = -0.5235988
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="Borders"]
+position = Vector2(897, 549.99994)
+rotation = -0.7853982
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="Borders"]
+position = Vector2(931.00006, 514)
+rotation = -0.7853982
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="Borders"]
+position = Vector2(977, 463.00006)
+rotation = -0.7853982
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="Borders"]
+position = Vector2(1033.0001, 407.00006)
+rotation = -0.7853982
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="Borders"]
+position = Vector2(1038, 375.99997)
+rotation = -1.3089969
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D17" type="CollisionShape2D" parent="Borders"]
+position = Vector2(1041, 342)
+rotation = -1.5707964
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D18" type="CollisionShape2D" parent="Borders"]
+position = Vector2(1036, 324)
+rotation = -1.8325958
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D19" type="CollisionShape2D" parent="Borders"]
+position = Vector2(1018, 292.99994)
+rotation = -2.0943952
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D20" type="CollisionShape2D" parent="Borders"]
+position = Vector2(995.0001, 270.99997)
+rotation = -2.3561945
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D21" type="CollisionShape2D" parent="Borders"]
+position = Vector2(953, 244.00003)
+rotation = -2.6179938
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D22" type="CollisionShape2D" parent="Borders"]
+position = Vector2(937, 244)
+rotation = -3.1415927
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D23" type="CollisionShape2D" parent="Borders"]
+position = Vector2(897, 296)
+rotation = -1.5707964
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D24" type="CollisionShape2D" parent="Borders"]
+position = Vector2(897, 213)
+rotation = -1.5707964
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D25" type="CollisionShape2D" parent="Borders"]
+position = Vector2(875, 182)
+rotation = -2.6179938
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D26" type="CollisionShape2D" parent="Borders"]
+position = Vector2(832, 171.00002)
+rotation = -2.8797934
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D27" type="CollisionShape2D" parent="Borders"]
+position = Vector2(784.00006, 165.00002)
+rotation = -3.1415927
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D28" type="CollisionShape2D" parent="Borders"]
+position = Vector2(702.99994, 176)
+rotation = -3.403392
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D29" type="CollisionShape2D" parent="Borders"]
+position = Vector2(659, 197.00002)
+rotation = -3.6651917
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D30" type="CollisionShape2D" parent="Borders"]
+position = Vector2(645.00006, 214)
+rotation = -3.926991
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D31" type="CollisionShape2D" parent="Borders"]
+position = Vector2(645, 237)
+rotation = -4.712389
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D32" type="CollisionShape2D" parent="Borders"]
+position = Vector2(659, 263.00006)
+rotation = -5.2359877
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D33" type="CollisionShape2D" parent="Borders"]
+position = Vector2(645, 305)
+rotation = -6.2831855
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D34" type="CollisionShape2D" parent="Borders"]
+position = Vector2(635.99994, 302.99997)
+rotation = -6.021386
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D35" type="CollisionShape2D" parent="Borders"]
+position = Vector2(620, 309)
+rotation = -6.021386
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D36" type="CollisionShape2D" parent="Borders"]
+position = Vector2(585, 287.00003)
+rotation = -5.759587
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D37" type="CollisionShape2D" parent="Borders"]
+position = Vector2(533, 239)
+rotation = -5.4977875
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D38" type="CollisionShape2D" parent="Borders"]
+position = Vector2(479, 170.00003)
+rotation = -5.2359877
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D39" type="CollisionShape2D" parent="Borders"]
+position = Vector2(430, 113)
+rotation = -5.4977875
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D40" type="CollisionShape2D" parent="Borders"]
+position = Vector2(382, 73.000015)
+rotation = -5.4977875
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D41" type="CollisionShape2D" parent="Borders"]
+position = Vector2(350.00003, 98.000015)
+rotation = -3.926991
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D42" type="CollisionShape2D" parent="Borders"]
+position = Vector2(358.00003, 149.00002)
+rotation = -5.4977875
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D43" type="CollisionShape2D" parent="Borders"]
+position = Vector2(398.00003, 185.00003)
+rotation = -5.4977875
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D44" type="CollisionShape2D" parent="Borders"]
+position = Vector2(443.00003, 244.00002)
+rotation = -5.2359877
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D45" type="CollisionShape2D" parent="Borders"]
+position = Vector2(491, 306.00006)
+rotation = -5.4977875
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D46" type="CollisionShape2D" parent="Borders"]
+position = Vector2(549, 362)
+rotation = -5.4977875
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D47" type="CollisionShape2D" parent="Borders"]
+position = Vector2(399, 275.00003)
+rotation = -5.759587
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D48" type="CollisionShape2D" parent="Borders"]
+position = Vector2(433, 306)
+rotation = -5.4977875
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D49" type="CollisionShape2D" parent="Borders"]
+position = Vector2(448, 334)
+rotation = -5.2359877
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D50" type="CollisionShape2D" parent="Borders"]
+position = Vector2(486, 415.99997)
+rotation = -5.2359877
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D52" type="CollisionShape2D" parent="Borders"]
+position = Vector2(532, 476)
+rotation = -5.4977875
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D53" type="CollisionShape2D" parent="Borders"]
+position = Vector2(591, 521)
+rotation = -5.759587
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D54" type="CollisionShape2D" parent="Borders"]
+position = Vector2(655, 544)
+rotation = -6.021386
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D55" type="CollisionShape2D" parent="Borders"]
+position = Vector2(721, 546.99994)
+rotation = -6.2831855
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D56" type="CollisionShape2D" parent="Borders"]
+position = Vector2(774.00006, 531.99994)
+rotation = -6.544985
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D57" type="CollisionShape2D" parent="Borders"]
+position = Vector2(838.00006, 502)
+rotation = -6.806784
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D58" type="CollisionShape2D" parent="Borders"]
+position = Vector2(886, 455)
+rotation = -7.0685835
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D59" type="CollisionShape2D" parent="Borders"]
+position = Vector2(942.00006, 397.00006)
+rotation = -7.0685835
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D60" type="CollisionShape2D" parent="Borders"]
+position = Vector2(941, 369)
+rotation = -7.5921826
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D61" type="CollisionShape2D" parent="Borders"]
+position = Vector2(919, 402)
+rotation = -7.3303833
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D62" type="CollisionShape2D" parent="Borders"]
+position = Vector2(900, 404.00006)
+rotation = -6.806784
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D63" type="CollisionShape2D" parent="Borders"]
+position = Vector2(860, 404)
+rotation = -6.2831855
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D64" type="CollisionShape2D" parent="Borders"]
+position = Vector2(827, 383.00006)
+rotation = -5.759587
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D65" type="CollisionShape2D" parent="Borders"]
+position = Vector2(828, 365.99997)
+rotation = -5.2359877
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D66" type="CollisionShape2D" parent="Borders"]
+position = Vector2(817.99994, 330)
+rotation = -4.9741883
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D67" type="CollisionShape2D" parent="Borders"]
+position = Vector2(824, 304)
+rotation = -4.712389
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D68" type="CollisionShape2D" parent="Borders"]
+position = Vector2(823.00006, 287)
+rotation = -4.4505897
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D69" type="CollisionShape2D" parent="Borders"]
+position = Vector2(795, 247)
+rotation = -3.1415927
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D70" type="CollisionShape2D" parent="Borders"]
+position = Vector2(754, 247)
+rotation = -3.1415927
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D71" type="CollisionShape2D" parent="Borders"]
+position = Vector2(736, 282)
+rotation = -5.2359877
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D72" type="CollisionShape2D" parent="Borders"]
+position = Vector2(747.99994, 323.99997)
+rotation = -4.9741883
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D73" type="CollisionShape2D" parent="Borders"]
+position = Vector2(737.00006, 354)
+rotation = -4.4505897
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D74" type="CollisionShape2D" parent="Borders"]
+position = Vector2(715.00006, 378)
+rotation = -3.926991
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D75" type="CollisionShape2D" parent="Borders"]
+position = Vector2(682, 391.00003)
+rotation = -3.403392
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D76" type="CollisionShape2D" parent="Borders"]
+position = Vector2(619, 393)
+rotation = -3.1415927
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D77" type="CollisionShape2D" parent="Borders"]
+position = Vector2(588, 380)
+rotation = -2.6179938
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D51" type="CollisionShape2D" parent="Borders"]
+position = Vector2(457, 360.00003)
+rotation = -5.2359877
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_border")
+
+[node name="CollisionShape2D78" type="CollisionShape2D" parent="Borders"]
+position = Vector2(957.3752, 346.15335)
+rotation = 0.7853982
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_dyi5b")
+
+[node name="FinishLine" type="Area2D" parent="."]
+position = Vector2(406, 136.99998)
+rotation = -0.80808747
+scale = Vector2(0.3, 0.1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinishLine"]
+shape = SubResource("RectangleShape2D_finish")
+
+[node name="FinishLineMarker" type="ColorRect" parent="FinishLine"]
+offset_left = -85.0
+offset_top = -14.0
+offset_right = 85.0
+offset_bottom = 14.0
+color = Color(1, 1, 1, 0.3)
+
+[node name="Sprite2D" type="Sprite2D" parent="FinishLine"]
+position = Vector2(3.350818e-05, 0.0003260524)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_kyjxb")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="InputKeyLabel" type="Label" parent="UI"]
+offset_left = 20.0
+offset_top = 588.0
+offset_right = 520.0
+offset_bottom = 620.0
+theme_override_font_sizes/font_size = 18
+text = "Inputs : Throttle, Reverse, Left, Right"
+
+[connection signal="body_entered" from="FinishLine" to="." method="_on_finish_line_body_entered"]

@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://cab2xpg4q3qio" path="res://pong/logic/wall.gd" id="4_2oo65"]
 [ext_resource type="Script" uid="uid://crgpodbat3yhq" path="res://pong/logic/ceiling_floor.gd" id="5_u6twc"]
 [ext_resource type="Texture2D" uid="uid://454yiubkxxs4" path="res://assests/Green Nascar.png" id="tex_green"]
-[ext_resource type="Texture2D" uid="uid://2cnsornkguc2" path="res://assests/Wheel.png" id="tex_wheel"]
+[ext_resource type="Texture2D" uid="uid://dnaqd6icdgeuh" path="res://assests/Tire Sprite.png" id="tex_wheel"]
 [ext_resource type="Texture2D" uid="uid://bpenru37hqstn" path="res://assests/Yellow Nascar.png" id="tex_yellow"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oumu0"]
@@ -100,10 +100,12 @@ position = Vector2(624, 324)
 script = ExtResource("3_kds7i")
 
 [node name="Sprite2D" type="Sprite2D" parent="Ball"]
-scale = Vector2(0.2, 0.2)
+position = Vector2(0, -3.9999998)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("tex_wheel")
 
 [node name="Collision" type="CollisionShape2D" parent="Ball"]
+scale = Vector2(1.2, 1.2)
 shape = SubResource("CircleShape2D_kds7i")
 
 [node name="LeftWall" type="Area2D" parent="."]
@@ -129,7 +131,7 @@ position = Vector2(624, 642)
 script = ExtResource("5_u6twc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
-position = Vector2(0, 20)
+position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_floor")
 
 [node name="Ceiling" type="Area2D" parent="."]
@@ -137,7 +139,7 @@ position = Vector2(624, 0)
 script = ExtResource("5_u6twc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ceiling"]
-position = Vector2(0, -20)
+position = Vector2(0, -53)
 shape = SubResource("RectangleShape2D_ceiling")
 
 [node name="Separator" type="Sprite2D" parent="."]

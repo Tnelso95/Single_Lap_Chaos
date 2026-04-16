@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bp2blgfu5ctkt"]
+[gd_scene load_steps=0 format=3 uid="uid://bp2blgfu5ctkt"]
 
 [node name="BlueF1" type="TextureButton"]
 offset_right = 40.0

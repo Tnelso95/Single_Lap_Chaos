@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://docp0vcw6spv"]
+[gd_scene load_steps=0 format=3 uid="uid://docp0vcw6spv"]
 
 [node name="YellowNascar" type="TextureButton"]
 offset_right = 40.0

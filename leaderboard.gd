@@ -1,51 +1,51 @@
 extends Node2D
 
+const WHEEL_SCENE_PATH := "res://main.tscn"
+const START_SCREEN_SCENE_PATH := "res://start_screen.tscn"
+const CAR_MOVE_DURATION := GlobalData.MINIGAME_WIN_POINTS / 40.0
+const POST_MOVE_PAUSE := 1.0
+const RACE_FINISH_DELAY := 3.0
+
 
 @onready var p1_path_follow = $P1Path2D/P1PathFollow2D
 @onready var p1car = p1_path_follow.get_node("P1Car")
 @onready var p2_path_follow = $P2Path2D/P2PathFollow2D
 @onready var p2car = p2_path_follow.get_node("P2Car")
+@onready var prompt_label: Label = $PromptLabel
+
+var transitioning := false
+var race_finished := false
 
 
 func _ready():
-	var blue_f1 = preload("res://assests/Blue F1 Car.png")
-	var orange_f1 = preload("res://assests/Orange F1 Car.png")
-	var green_nascar = preload("res://assests/Green Nascar.png")
-	var yellow_nascar = preload("res://assests/Yellow Nascar.png")
-	if GlobalData.p1Car == "bluef1":
-		$P1Path2D/P1PathFollow2D/P1Car.texture = blue_f1
-		$P1Path2D/P1PathFollow2D/P1Car.scale = Vector2(.01,.01)
-	if GlobalData.p2Car == "bluef1":
-		$P2Path2D/P2PathFollow2D/P2Car.texture = blue_f1
-		$P2Path2D/P2PathFollow2D/P2Car.scale = Vector2(.01,.01)
-	if GlobalData.p1Car == "orangef1":
-		$P1Path2D/P1PathFollow2D/P1Car.texture = orange_f1
-		$P1Path2D/P1PathFollow2D/P1Car.scale = Vector2(.01,.01)
-	if GlobalData.p2Car == "orangef1":
-		$P2Path2D/P2PathFollow2D/P2Car.texture = orange_f1
-		$P2Path2D/P2PathFollow2D/P2Car.scale = Vector2(.01,.01)
-	if GlobalData.p1Car == "greennascar":
-		$P1Path2D/P1PathFollow2D/P1Car.texture = green_nascar
-		$P1Path2D/P1PathFollow2D/P1Car.scale = Vector2(.007,.007)
-	if GlobalData.p2Car == "greennascar":
-		$P2Path2D/P2PathFollow2D/P2Car.texture = green_nascar
-		$P2Path2D/P2PathFollow2D/P2Car.scale = Vector2(.007,.007)
-	if GlobalData.p1Car == "yellownascar":
-		$P1Path2D/P1PathFollow2D/P1Car.texture = yellow_nascar
-		$P1Path2D/P1PathFollow2D/P1Car.scale = Vector2(.007,.007)
-	if GlobalData.p2Car == "yellownascar":
-		$P2Path2D/P2PathFollow2D/P2Car.texture = yellow_nascar
-		$P2Path2D/P2PathFollow2D/P2Car.scale = Vector2(.007,.007)
+	_apply_car_visuals(p1car, GlobalData.p1Car)
+	_apply_car_visuals(p2car, GlobalData.p2Car)
 	update_position()
+	if GlobalData.has_race_winner():
+		queue_race_finish_transition()
+	else:
+		prompt_label.text = "Next minigame loading..."
+		queue_wheel_transition()
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_pressed():
+		if race_finished:
+			return_to_start_screen()
+		else:
+			advance_to_wheel()
 
 func update_position():
-	var p1progress = GlobalData.p1Points / 1000.0
-	var p2progress = GlobalData.p2Points / 1000.0
-	var p1seconds = GlobalData.p1Points / 40.0
-	var p2seconds = GlobalData.p2Points / 40.0
+	var p1start_progress = GlobalData.p1DisplayedPoints / GlobalData.POINTS_TO_WIN
+	var p2start_progress = GlobalData.p2DisplayedPoints / GlobalData.POINTS_TO_WIN
+	var p1progress = GlobalData.p1Points / GlobalData.POINTS_TO_WIN
+	var p2progress = GlobalData.p2Points / GlobalData.POINTS_TO_WIN
+	var p1seconds = CAR_MOVE_DURATION if not is_equal_approx(GlobalData.p1Points, GlobalData.p1DisplayedPoints) else 0.0
+	var p2seconds = CAR_MOVE_DURATION if not is_equal_approx(GlobalData.p2Points, GlobalData.p2DisplayedPoints) else 0.0
 	
 	$ProgressBarP1.value = GlobalData.p1Points / 10.0
 	$ProgressBarP2.value = GlobalData.p2Points / 10.0
+	p1_path_follow.progress_ratio = p1start_progress
+	p2_path_follow.progress_ratio = p2start_progress
 	
 	var p1tween = create_tween()
 	p1tween.tween_property(
@@ -62,3 +62,45 @@ func update_position():
 		p2progress,
 		p2seconds
 	)
+
+func queue_wheel_transition() -> void:
+	var p1_moved = not is_equal_approx(GlobalData.p1Points, GlobalData.p1DisplayedPoints)
+	var p2_moved = not is_equal_approx(GlobalData.p2Points, GlobalData.p2DisplayedPoints)
+	var wait_time = POST_MOVE_PAUSE
+	if p1_moved or p2_moved:
+		wait_time += CAR_MOVE_DURATION
+	await get_tree().create_timer(wait_time).timeout
+	advance_to_wheel()
+
+func queue_race_finish_transition() -> void:
+	race_finished = true
+	var winner := GlobalData.get_race_winner()
+	if winner == 1:
+		prompt_label.text = "Player 1 completes the lap! Returning to start screen..."
+	elif winner == 2:
+		prompt_label.text = "Player 2 completes the lap! Returning to start screen..."
+	else:
+		prompt_label.text = "Race complete! Returning to start screen..."
+	await get_tree().create_timer(RACE_FINISH_DELAY).timeout
+	return_to_start_screen()
+
+func advance_to_wheel() -> void:
+	if transitioning:
+		return
+	transitioning = true
+	GlobalData.sync_displayed_points()
+	get_tree().change_scene_to_file(WHEEL_SCENE_PATH)
+
+func return_to_start_screen() -> void:
+	if transitioning:
+		return
+	transitioning = true
+	GlobalData.reset_race(true)
+	get_tree().change_scene_to_file(START_SCREEN_SCENE_PATH)
+
+func _apply_car_visuals(car_sprite: Sprite2D, car_id: Variant) -> void:
+	var texture_path := GlobalData.get_car_texture_path(car_id)
+	if texture_path.is_empty():
+		return
+	car_sprite.texture = load(texture_path)
+	car_sprite.scale = GlobalData.get_car_track_scale(car_id)

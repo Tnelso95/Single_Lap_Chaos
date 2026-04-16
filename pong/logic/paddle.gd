@@ -11,7 +11,7 @@ var _down: String
 
 
 func _ready() -> void:
-	var n := String(name).to_lower()
+	var n := str(name).to_lower()
 	_up = n + "_move_up"
 	_down = n + "_move_down"
 	_ball_dir = 1 if n == "left" else -1
