@@ -9,6 +9,7 @@ const MINIGAME_DIZZY_DRIVING := "dizzy_driving"
 
 var p1Car = null
 var p2Car = null
+var winner = null
 
 var p1Points = 0.0
 var p2Points = 0.0
@@ -33,6 +34,10 @@ func award_win(player: int, points: float = MINIGAME_WIN_POINTS) -> void:
 		p2Points += points
 
 func has_race_winner() -> bool:
+	if p1Points >= POINTS_TO_WIN:
+		winner = "player1"
+	if p2Points >= POINTS_TO_WIN:
+		winner = "player2"
 	return p1Points >= POINTS_TO_WIN or p2Points >= POINTS_TO_WIN
 
 func get_race_winner() -> int:

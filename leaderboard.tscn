@@ -1,10 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://d24xx2n4aage6"]
+[gd_scene load_steps=13 format=3 uid="uid://dsgnka0vgkf4s"]
 
-[ext_resource type="Script" uid="uid://cgauebb6yq8bf" path="res://leaderboard.gd" id="1_y1kwj"]
+[ext_resource type="Script" path="res://leaderboard.gd" id="1_y1kwj"]
 [ext_resource type="Texture2D" uid="uid://c80lsqvr1frew" path="res://assests/map_with_background.png" id="2_y1kwj"]
 [ext_resource type="Texture2D" uid="uid://bpenru37hqstn" path="res://assests/Yellow Nascar.png" id="3_qjw78"]
 [ext_resource type="Texture2D" uid="uid://b77iaupkag5nw" path="res://assests/Blue F1 Car.png" id="4_qjw78"]
 [ext_resource type="FontFile" uid="uid://b8v1h8g220618" path="res://assests/ka1.ttf" id="5_qjw78"]
+[ext_resource type="Texture2D" uid="uid://bul7kphyyrv8t" path="res://assests/player1_score_tile.png" id="5_qvevx"]
+[ext_resource type="Texture2D" uid="uid://bq8pnb57fy37n" path="res://assests/player2_score_tile.png" id="6_8e2uo"]
 [ext_resource type="Texture2D" uid="uid://c3btx4bjsd6s0" path="res://kenney_ui-pack-space-expansion/Vector/Blue/bar_round_gloss_large.svg" id="6_h2hfu"]
 
 [sub_resource type="Curve2D" id="Curve2D_h2hfu"]
@@ -18,8 +20,6 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -520, -206, 0, 0, 0, 0, -506, -231, 0, 0, 0, 0, -495, -244, 0, 0, 0, 0, -481, -266, 0, 0, 0, 0, -459, -299, 0, 0, 0, 0, -432, -333, 0, 0, 0, 0, -406, -362, 0, 0, 0, 0, -377, -390, 0, 0, 0, 0, -353, -411, 0, 0, 0, 0, -332, -432, 0, 0, 0, 0, -310, -453, 0, 0, 0, 0, -286, -464, 0, 0, 0, 0, -266, -468, 0, 0, 0, 0, -246, -468, 0, 0, 0, 0, -230, -463, 0, 0, 0, 0, -212, -452, 0, 0, 0, 0, -197, -441, 0, 0, 0, 0, -179, -426, 0, 0, 0, 0, -147, -398, 0, 0, 0, 0, -124, -372, 0, 0, 0, 0, -99, -351, 0, 0, 0, 0, -72, -325, 0, 0, 0, 0, -44, -309, 0, 0, 0, 0, -19, -292, 0, 0, 0, 0, 6, -273, 0, 0, 0, 0, 22, -258, 0, 0, 0, 0, 35, -238, 0, 0, 0, 0, 51, -214, 0, 0, 0, 0, 67, -187, 0, 0, 0, 0, 86, -163, 0, 0, 0, 0, 107, -140, 0, 0, 0, 0, 130, -118, 0, 0, 0, 0, 157, -97, 0, 0, 0, 0, 187, -80, 0, 0, 0, 0, 212, -68, 0, 0, 0, 0, 236, -58, 0, 0, 0, 0, 263, -50, 0, 0, 0, 0, 291, -47, 0, 0, 0, 0, 317, -49, 0, 0, 0, 0, 338, -56, 0, 0, 0, 0, 353, -73, 0, 0, 0, 0, 363, -93, 0, 0, 0, 0, 362, -120, 0, 0, 0, 0, 354, -141, 0, 0, 0, 0, 344, -161, 0, 0, 0, 0, 338, -179, 0, 0, 0, 0, 339, -197, 0, 0, 0, 0, 347, -209, 0, 0, 0, 0, 372, -214, 0, 0, 0, 0, 398, -215, 0, 0, 0, 0, 429, -217, 0, 0, 0, 0, 458, -217, 0, 0, 0, 0, 485, -215, 0, 0, 0, 0, 512, -210, 0, 0, 0, 0, 532, -188, 0, 0, 0, 0, 536, -149, 0, 0, 0, 0, 531, -126, 0, 0, 0, 0, 532, -98, 0, 0, 0, 0, 532, -73, 0, 0, 0, 0, 539, -55, 0, 0, 0, 0, 559, -40, 0, 0, 0, 0, 584, -41, 0, 0, 0, 0, 602, -52, 0, 0, 0, 0, 614, -75, 0, 0, 0, 0, 621, -106, 0, 0, 0, 0, 633, -125, 0, 0, 0, 0, 654, -125, 0, 0, 0, 0, 674, -113, 0, 0, 0, 0, 689, -90, 0, 0, 0, 0, 701, -66, 0, 0, 0, 0, 699, -45, 0, 0, 0, 0, 690, -21, 0, 0, 0, 0, 668, 4, 0, 0, 0, 0, 643, 26, 0, 0, 0, 0, 613, 52, 0, 0, 0, 0, 588, 77, 0, 0, 0, 0, 563, 100, 0, 0, 0, 0, 535, 122, 0, 0, 0, 0, 506, 141, 0, 0, 0, 0, 470, 156, 0, 0, 0, 0, 446, 165, 0, 0, 0, 0, 409, 170, 0, 0, 0, 0, 376, 172, 0, 0, 0, 0, 337, 172, 0, 0, 0, 0, 294, 167, 0, 0, 0, 0, 265, 164, 0, 0, 0, 0, 231, 157, 0, 0, 0, 0, 189, 144, 0, 0, 0, 0, 165, 132, 0, 0, 0, 0, 137, 117, 0, 0, 0, 0, 111, 96, 0, 0, 0, 0, 89, 75, 0, 0, 0, 0, 73, 52, 0, 0, 0, 0, 64, 33, 0, 0, 0, 0, 47, 9, 0, 0, 0, 0, 32, -18, 0, 0, 0, 0, 15, -49, 0, 0, 0, 0, -3, -75, 0, 0, 0, 0, -20, -102, 0, 0, 0, 0, -41, -123, 0, 0, 0, 0, -63, -139, 0, 0, 0, 0, -88, -154, 0, 0, 0, 0, -111, -165, 0, 0, 0, 0, -124, -184, 0, 0, 0, 0, -137, -224, 0, 0, 0, 0, -148, -255, 0, 0, 0, 0, -165, -295, 0, 0, 0, 0, -174, -319, 0, 0, 0, 0, -186, -339, 0, 0, 0, 0, -201, -355, 0, 0, 0, 0, -221, -364, 0, 0, 0, 0, -249, -365, 0, 0, 0, 0, -281, -360, 0, 0, 0, 0, -310, -346, 0, 0, 0, 0, -333, -326, 0, 0, 0, 0, -354, -304, 0, 0, 0, 0, -364, -278, 0, 0, 0, 0, -371, -259, 0, 0, 0, 0, -372, -238, 0, 0, 0, 0, -369, -224, 0, 0, 0, 0, -366, -195, 0, 0, 0, 0, -370, -167, 0, 0, 0, 0, -387, -137, 0, 0, 0, 0, -408, -111, 0, 0, 0, 0, -433, -90, 0, 0, 0, 0, -462, -72, 0, 0, 0, 0, -492, -51, 0, 0, 0, 0, -516, -31, 0, 0, 0, 0, -537, -5, 0, 0, 0, 0, -551, 15, 0, 0, 0, 0, -559, 37, 0, 0, 0, 0, -569, 67, 0, 0, 0, 0, -573, 97, 0, 0, 0, 0, -573, 126, 0, 0, 0, 0, -573, 154, 0, 0, 0, 0, -568, 185, 0, 0, 0, 0, -565, 212, 0, 0, 0, 0, -565, 239, 0, 0, 0, 0, -566, 257, 0, 0, 0, 0, -566, 274, 0, 0, 0, 0, -577, 272, 0, 0, 0, 0, -587, 265, 0, 0, 0, 0, -601, 246, 0, 0, 0, 0, -624, 221, 0, 0, 0, 0, -642, 203, 0, 0, 0, 0, -660, 182, 0, 0, 0, 0, -676, 159, 0, 0, 0, 0, -686, 136, 0, 0, 0, 0, -683, 114, 0, 0, 0, 0, -663, 100, 0, 0, 0, 0, -637, 85, 0, 0, 0, 0, -622, 46, 0, 0, 0, 0, -614, 7, 0, 0, 0, 0, -605, -31, 0, 0, 0, 0, -593, -63, 0, 0, 0, 0, -580, -92, 0, 0, 0, 0, -557, -138, 0, 0, 0, 0, -536, -178, 0, 0, 0, 0, -520, -206)
 }
 point_count = 159
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qjw78"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6c6j3"]
 texture = ExtResource("6_h2hfu")
@@ -62,42 +62,30 @@ texture = ExtResource("4_qjw78")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.6, 0.6)
 
-[node name="TextEdit" type="TextEdit" parent="."]
-offset_left = -473.0
-offset_top = 299.0
-offset_right = -23.0
-offset_bottom = 385.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("5_qjw78")
-theme_override_font_sizes/font_size = 65
-theme_override_styles/normal = SubResource("StyleBoxEmpty_qjw78")
-text = "Player 1"
+[node name="P1Score" type="Sprite2D" parent="."]
+position = Vector2(-300, 383)
+scale = Vector2(2, 2)
+texture = ExtResource("5_qvevx")
 
-[node name="TextEdit2" type="TextEdit" parent="."]
-offset_left = 35.0
-offset_top = 299.0
-offset_right = 485.0
-offset_bottom = 385.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("5_qjw78")
-theme_override_font_sizes/font_size = 65
-theme_override_styles/normal = SubResource("StyleBoxEmpty_qjw78")
-text = "Player 2"
+[node name="P2Score" type="Sprite2D" parent="."]
+position = Vector2(264, 385)
+scale = Vector2(2, 2)
+texture = ExtResource("6_8e2uo")
 
 [node name="ProgressBarP1" type="ProgressBar" parent="."]
-offset_left = -405.0
-offset_top = 394.0
-offset_right = -131.0
-offset_bottom = 500.0
+offset_left = -489.0
+offset_top = 416.0
+offset_right = -63.0
+offset_bottom = 496.0
 theme_override_fonts/font = ExtResource("5_qjw78")
 theme_override_styles/fill = SubResource("StyleBoxTexture_6c6j3")
 value = 82.0
 
 [node name="ProgressBarP2" type="ProgressBar" parent="."]
-offset_left = 111.0
-offset_top = 397.0
-offset_right = 385.0
-offset_bottom = 503.0
+offset_left = 75.0
+offset_top = 414.0
+offset_right = 505.0
+offset_bottom = 495.0
 theme_override_fonts/font = ExtResource("5_qjw78")
 theme_override_styles/fill = SubResource("StyleBoxTexture_h2hfu")
 value = 40.0
@@ -110,6 +98,6 @@ offset_bottom = -289.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_qjw78")
 theme_override_font_sizes/font_size = 34
+text = "Next minigame loading..."
 horizontal_alignment = 1
 vertical_alignment = 1
-text = "Next minigame loading..."

@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://yaxkt2bbsb2o"]
+
+[ext_resource type="Texture2D" uid="uid://dqu4wprh66xj0" path="res://assests/winner_screen.png" id="1_ajgwe"]
+[ext_resource type="Script" uid="uid://b3rq3jfmyo4kr" path="res://winner.gd" id="1_rnxuv"]
+[ext_resource type="FontFile" uid="uid://b8v1h8g220618" path="res://assests/ka1.ttf" id="3_dtg64"]
+
+[node name="Winner" type="Node2D"]
+script = ExtResource("1_rnxuv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(574, 328)
+texture = ExtResource("1_ajgwe")
+
+[node name="WinnerText" type="TextEdit" parent="."]
+offset_left = 417.0
+offset_top = 335.0
+offset_right = 735.0
+offset_bottom = 375.0
+theme_override_fonts/font = ExtResource("3_dtg64")
+text = "Congratulations player 1!"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(190, 85)
+zoom = Vector2(1.9, 1.9)
+limit_left = 270
+limit_top = 25
+limit_right = 870
+limit_bottom = 625

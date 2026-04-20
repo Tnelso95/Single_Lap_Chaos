@@ -1,14 +1,14 @@
-CollisionShape2D
+Camera2D
 Sprite2D
+TextEdit
+CollisionShape2D
 TextureProgressBar
 ProgressBar
-TextEdit
 PathFollow2D
 Path2D
 CharacterBody2D
 Node
 Line2D
-Camera2D
 Button
 CanvasLayer
 TextureRect
