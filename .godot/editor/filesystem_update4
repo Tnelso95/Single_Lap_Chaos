@@ -1,7 +1,3 @@
-res://start_button.gd
-res://character_select_menu.gd
-res://leaderboard.gd
-res://global_data.gd
-res://leaderboard.tscn
 res://winner.tscn
 res://winner.gd
+res://global_data.gd

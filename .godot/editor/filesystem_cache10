@@ -1,12 +1,12 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1776717801
+::res://::1776796723
 blue_f_1.tscn::PackedScene::-1::1776715652::0::1::::<><><>0<>0<><>::
 character_select.tscn::PackedScene::-1::1776715652::0::1::::<><><>0<>0<><>::
-character_select_menu.gd::GDScript::-1::1776715637::0::1::::<>Node2D<><>0<>0<><>::
+character_select_menu.gd::GDScript::5798150946768857544::1776715637::0::1::::<>Node2D<><>0<>0<><>::
 global_data.gd::GDScript::5808755714590868101::1776717329::0::1::::<>Node<><>0<>0<><>::
 green_nascar.tscn::PackedScene::-1::1776715652::0::1::::<><><>0<>0<><>::
 icon.svg::CompressedTexture2D::4333877109766545987::1771885050::1771885050::1::::<><><>0<>0<>ba96aaf1ef1f20af962da71d014c6161<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
-leaderboard.gd::GDScript::-1::1776715637::0::1::::<>Node2D<><>0<>0<><>::
+leaderboard.gd::GDScript::5195195967754737099::1776715637::0::1::::<>Node2D<><>0<>0<><>::
 leaderboard.tscn::PackedScene::8435854721515929872::1776716767::0::1::::<><><>0<>0<><>::res://leaderboard.gd<>uid://c80lsqvr1frew::::res://assests/map_with_background.png<>uid://bpenru37hqstn::::res://assests/Yellow Nascar.png<>uid://b77iaupkag5nw::::res://assests/Blue F1 Car.png<>uid://b8v1h8g220618::::res://assests/ka1.ttf<>uid://bul7kphyyrv8t::::res://assests/player1_score_tile.png<>uid://bq8pnb57fy37n::::res://assests/player2_score_tile.png<>uid://c3btx4bjsd6s0::::res://kenney_ui-pack-space-expansion/Vector/Blue/bar_round_gloss_large.svg
 main.tscn::PackedScene::-1::1776715652::0::1::::<><><>0<>0<><>::
 minigame_intro.gd::GDScript::-1::1776715637::0::1::::<>Control<><>0<>0<><>::
@@ -14,11 +14,11 @@ minigame_intro.tscn::PackedScene::-1::1776715637::0::1::::<><><>0<>0<><>::
 node_2d.gd::GDScript::-1::1776715637::0::1::::<>Node2D<><>0<>0<><>::
 orange_f_1.tscn::PackedScene::-1::1776715652::0::1::::<><><>0<>0<><>::
 README.md::TextFile::-1::1771885050::0::1::::<><><>0<>0<><>::
-winner.gd::GDScript::4387824682502679177::1776717801::0::1::::<>Node2D<><>0<>0<><>::
-winner.tscn::PackedScene::1685947635786308136::1776717801::0::1::::<><><>0<>0<><>::uid://dqu4wprh66xj0::::res://assests/winner_screen.png<>uid://b3rq3jfmyo4kr::::res://winner.gd<>uid://b8v1h8g220618::::res://assests/ka1.ttf
-start_button.gd::GDScript::-1::1776715637::0::1::::<>TextureButton<><>0<>0<><>::
+start_button.gd::GDScript::5628128842636125466::1776715637::0::1::::<>TextureButton<><>0<>0<><>::
 start_screen.tscn::PackedScene::-1::1776715652::0::1::::<><><>0<>0<><>::
 wheel.tscn::PackedScene::-1::1776715652::0::1::::<><><>0<>0<><>::
+winner.gd::GDScript::4387824682502679177::1776720497::0::1::::<>Node2D<><>0<>0<><>::
+winner.tscn::PackedScene::1685947635786308136::1776720939::0::1::::<><><>0<>0<><>::uid://dqu4wprh66xj0::::res://assests/winner_screen.png<>uid://b3rq3jfmyo4kr::::res://winner.gd<>uid://b8v1h8g220618::::res://assests/ka1.ttf
 yellow_nascar.tscn::PackedScene::-1::1776715652::0::1::::<><><>0<>0<><>::
 ::res://addons/::1776715637
 ::res://addons/trail_2d/::1776715637
@@ -27,7 +27,7 @@ plugin.cfg::TextFile::-1::1776715637::0::1::::<><><>0<>0<><>::
 test.tscn::PackedScene::3600885721114100154::1776715637::0::1::::<><><>0<>0<><>::res://addons/trail_2d/trail_2d.gd
 trail_2d.gd::GDScript::6532348828622861264::1776715637::0::1::::<>Line2D<><>0<>0<><>::
 trail_2d_plugin.gd::GDScript::7478856451021629544::1776715637::0::1::::<>EditorPlugin<><>0<>1<><>::
-::res://assests/::1776718740
+::res://assests/::1776718749
 black-screen.png::CompressedTexture2D::4275694193338473404::1776715637::1776715653::1::::<><><>0<>0<>d97e47aeb46291f085f1b4f60d7c73fc<>res://.godot/imported/black-screen.png-9a6bdaf92d70f026550213b4689cb169.ctex::
 Blue F1 Car.png::CompressedTexture2D::4699010578275876216::1776715637::1776715653::1::::<><><>0<>0<>d0f90adc8b2c6c0f48a89cb4d00dd9bb<>res://.godot/imported/Blue F1 Car.png-910dd88850b410f251336ea189566b7e.ctex::
 blueconfetti.png::CompressedTexture2D::7323754384140070200::1776718682::1776718749::1::::<><><>0<>0<>2e7f807c75e6ff6d75ce5d26648ff260<>res://.godot/imported/blueconfetti.png-0770bfed2c872cea33e983714de34b7d.ctex::

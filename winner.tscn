@@ -1,14 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://yaxkt2bbsb2o"]
+[gd_scene load_steps=5 format=3 uid="uid://yaxkt2bbsb2o"]
 
 [ext_resource type="Texture2D" uid="uid://dqu4wprh66xj0" path="res://assests/winner_screen.png" id="1_ajgwe"]
 [ext_resource type="Script" uid="uid://b3rq3jfmyo4kr" path="res://winner.gd" id="1_rnxuv"]
 [ext_resource type="FontFile" uid="uid://b8v1h8g220618" path="res://assests/ka1.ttf" id="3_dtg64"]
+[ext_resource type="Texture2D" uid="uid://b77iaupkag5nw" path="res://assests/Blue F1 Car.png" id="4_dtg64"]
 
 [node name="Winner" type="Node2D"]
 script = ExtResource("1_rnxuv")
+metadata/_edit_vertical_guides_ = [571.0]
+metadata/_edit_horizontal_guides_ = [442.0]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="."]
 position = Vector2(574, 328)
+scale = Vector2(1.1, 1.1)
 texture = ExtResource("1_ajgwe")
 
 [node name="WinnerText" type="TextEdit" parent="."]
@@ -19,10 +23,8 @@ offset_bottom = 375.0
 theme_override_fonts/font = ExtResource("3_dtg64")
 text = "Congratulations player 1!"
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(190, 85)
-zoom = Vector2(1.9, 1.9)
-limit_left = 270
-limit_top = 25
-limit_right = 870
-limit_bottom = 625
+[node name="WinnerCar" type="Sprite2D" parent="."]
+position = Vector2(63, 525)
+rotation = 1.5707964
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("4_dtg64")

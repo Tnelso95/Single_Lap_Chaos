@@ -1,9 +1,22 @@
 extends Node2D
 
+var sprites = [
+	preload("res://assests/Blue F1 Car.png"),
+	preload("res://assests/Orange F1 Car.png"),
+	preload("res://assests/Green Nascar.png"),
+	preload("res://assests/Yellow Nascar.png")
+]
 
 func _ready() -> void:
 	winner_text()
 	confetti()
+	set_car()
+	
+func _process(delta):
+	while ($WinnerCar.position != Vector2(570,525)):
+		$WinnerCar.position.x += 1
+		#$WinnerCar.position.y += 1
+		await get_tree().create_timer(1).timeout
 	
 	
 func winner_text():
@@ -50,3 +63,15 @@ func confetti():
 			0.0,
 			10.0
 		).set_delay(2.0)
+		
+func set_car():
+	if GlobalData.winner == "bluef1":
+		$WinnerCar.texture = sprites[0]
+	if GlobalData.winner == "orangef1":
+		$WinnerCar.texture = sprites[1]
+	if GlobalData.winner == "greennascar":
+		$WinnerCar.texture = sprites[2]
+		$WinnerCar.scale = Vector2(0.05, 0.05)
+	if GlobalData.winner == "yellowf1":
+		$WinnerCar.texture = sprites[3]
+		$WinnerCar.scale = Vector2(0.05, 0.05)
