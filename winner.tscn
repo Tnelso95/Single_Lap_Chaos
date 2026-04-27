@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://yaxkt2bbsb2o"]
+[gd_scene load_steps=5 format=3 uid="uid://cwo2ju4kjqw06"]
 
 [ext_resource type="Texture2D" uid="uid://dqu4wprh66xj0" path="res://assests/winner_screen.png" id="1_ajgwe"]
 [ext_resource type="Script" uid="uid://b3rq3jfmyo4kr" path="res://winner.gd" id="1_rnxuv"]
@@ -9,6 +9,11 @@
 script = ExtResource("1_rnxuv")
 metadata/_edit_vertical_guides_ = [571.0]
 metadata/_edit_horizontal_guides_ = [442.0]
+
+[node name="Background2" type="Sprite2D" parent="."]
+position = Vector2(-424.00012, -109.99994)
+scale = Vector2(10.655001, 5.985)
+texture = ExtResource("1_ajgwe")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(574, 328)

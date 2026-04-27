@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="PackedScene" path="res://photo_memory/photo_memory.tscn" id="1_pmgame"]
+
+[node name="PhotoMemoryPractice" type="Node2D"]
+
+[node name="PhotoMemoryGame" parent="." instance=ExtResource("1_pmgame")]

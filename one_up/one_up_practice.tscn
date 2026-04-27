@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0jshfgc3vhud"]
+
+[ext_resource type="PackedScene" uid="uid://bh8ftvyhnsx1q" path="res://one_up/one_up.tscn" id="1_oneup"]
+[ext_resource type="Texture2D" uid="uid://qwh5yjbksqy1" path="res://assests/practice_round.png" id="2_practice"]
+
+[node name="OneUpPractice" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PracticeBanner" type="Sprite2D" parent="."]
+z_index = 100
+position = Vector2(576, 42)
+texture = ExtResource("2_practice")
+
+[node name="OneUpGame" parent="." instance=ExtResource("1_oneup")]
+layout_mode = 1

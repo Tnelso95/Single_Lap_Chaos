@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bkm6t0rmjo25k"]
+[gd_scene load_steps=3 format=3 uid="uid://bq5gb44l0i8gg"]
 
 [ext_resource type="Script" uid="uid://couwx1aos2orw" path="res://character_select_menu.gd" id="1_4hbjg"]
 [ext_resource type="Texture2D" uid="uid://cu4771ss0y6gp" path="res://assests/Selection Screen.png" id="2_jdigy"]
@@ -6,64 +6,88 @@
 [node name="CharacterSelect" type="Node2D"]
 script = ExtResource("1_4hbjg")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -1109.0
+offset_top = -769.0
+offset_right = 1171.0
+offset_bottom = 734.0
+color = Color(0.6901961, 0.80784315, 0.8862745, 1)
+
 [node name="Background" type="Sprite2D" parent="."]
-scale = Vector2(1.8, 1.8)
+scale = Vector2(2.2, 1.8)
 texture = ExtResource("2_jdigy")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.6, 0.6)
 
-[node name="PlayerOneCars" type="TextureRect" parent="."]
+[node name="PlayerOneCarsColor" type="TextureRect" parent="."]
 light_mask = 512
-offset_left = -443.0
-offset_top = -94.0
-offset_right = -139.0
-offset_bottom = 269.0
+offset_left = -636.0
+offset_top = -201.0
+offset_right = -115.0
+offset_bottom = 390.0
 stretch_mode = 5
 
-[node name="PlayerTwoCars" type="TextureRect" parent="."]
+[node name="PlayerOneCarsGray" type="TextureRect" parent="."]
 light_mask = 512
-offset_left = 130.0
-offset_top = -98.0
-offset_right = 432.0
-offset_bottom = 270.0
+offset_left = -508.0
+offset_top = -91.0
+offset_right = -204.0
+offset_bottom = 272.0
+stretch_mode = 5
+
+[node name="PlayerTwoCarsColor" type="TextureRect" parent="."]
+light_mask = 512
+offset_left = 67.0
+offset_top = -197.0
+offset_right = 589.0
+offset_bottom = 377.0
+stretch_mode = 5
+
+[node name="PlayerTwoCarsGray" type="TextureRect" parent="."]
+light_mask = 512
+offset_left = 204.0
+offset_top = -101.0
+offset_right = 506.0
+offset_bottom = 267.0
+stretch_mode = 5
 
 [node name="PlayerOneNext" type="Button" parent="."]
 visibility_layer = 0
-offset_left = -131.0
+offset_left = -153.0
 offset_top = 38.0
-offset_right = -53.0
+offset_right = -75.0
 offset_bottom = 163.0
 
 [node name="PlayerTwoNext" type="Button" parent="."]
 visibility_layer = 0
-offset_left = 445.0
-offset_top = 39.0
-offset_right = 515.0
-offset_bottom = 161.0
+offset_left = 550.0
+offset_top = 41.0
+offset_right = 620.0
+offset_bottom = 163.0
 
 [node name="PlayerOnePrevious" type="Button" parent="."]
 visibility_layer = 0
-offset_left = -524.0
-offset_top = 42.0
-offset_right = -453.0
-offset_bottom = 165.0
+offset_left = -634.0
+offset_top = 40.0
+offset_right = -563.0
+offset_bottom = 163.0
 
 [node name="PlayerTwoPrevious" type="Button" parent="."]
 visibility_layer = 0
-offset_left = 50.0
-offset_top = 44.0
-offset_right = 117.0
-offset_bottom = 163.0
+offset_left = 66.0
+offset_top = 43.0
+offset_right = 133.0
+offset_bottom = 162.0
 
 [node name="PlayerOneSelect" type="Button" parent="."]
-offset_left = -391.0
-offset_top = 315.0
-offset_right = -190.0
-offset_bottom = 419.0
+offset_left = -472.0
+offset_top = 317.0
+offset_right = -231.0
+offset_bottom = 421.0
 
 [node name="PlayerTwoSelect" type="Button" parent="."]
-offset_left = 177.0
-offset_top = 317.0
-offset_right = 383.0
-offset_bottom = 413.0
+offset_left = 227.0
+offset_top = 315.0
+offset_right = 468.0
+offset_bottom = 411.0

@@ -6,23 +6,35 @@ var sprites = [
 	preload("res://assests/Green Nascar.png"),
 	preload("res://assests/Yellow Nascar.png")
 ]
+const START_SCENE_PATH := "res://start_screen.tscn"
+const TRIGGER_THRESHOLD := 0.65
+const WINNER_SOUND: AudioStream = preload("res://sounds_assets/winner.mp3")
+var _returning := false
+var _winner_audio_player: AudioStreamPlayer = AudioStreamPlayer.new()
 
 func _ready() -> void:
+	_winner_audio_player.bus = "Master"
+	_winner_audio_player.autoplay = false
+	_winner_audio_player.volume_db = 0.0
+	add_child(_winner_audio_player)
 	winner_text()
 	confetti()
 	set_car()
+	_play_winner_sound()
 	
 func _process(delta):
 	while ($WinnerCar.position != Vector2(570,525)):
 		$WinnerCar.position.x += 1
 		#$WinnerCar.position.y += 1
 		await get_tree().create_timer(1).timeout
+	_check_return_combo()
 	
 	
 func winner_text():
-	if GlobalData.winner == "player1":
+	var winner_player := GlobalData.get_race_winner()
+	if winner_player == 1:
 		$WinnerText.text = "Congratulations player 1!"
-	if GlobalData.winner == "player2":
+	if winner_player == 2:
 		$WinnerText.text = "Congratulations player 2!"
 		
 		
@@ -65,13 +77,36 @@ func confetti():
 		).set_delay(2.0)
 		
 func set_car():
-	if GlobalData.winner == "bluef1":
-		$WinnerCar.texture = sprites[0]
-	if GlobalData.winner == "orangef1":
-		$WinnerCar.texture = sprites[1]
-	if GlobalData.winner == "greennascar":
-		$WinnerCar.texture = sprites[2]
+	var winner_player := GlobalData.get_race_winner()
+	var winner_car_id: Variant = GlobalData.p1Car if winner_player == 1 else GlobalData.p2Car
+	var texture_path := GlobalData.get_car_texture_path(winner_car_id)
+	if texture_path.is_empty():
+		return
+	$WinnerCar.texture = load(texture_path)
+	if str(winner_car_id) == "greennascar" or str(winner_car_id) == "yellownascar":
 		$WinnerCar.scale = Vector2(0.05, 0.05)
-	if GlobalData.winner == "yellowf1":
-		$WinnerCar.texture = sprites[3]
-		$WinnerCar.scale = Vector2(0.05, 0.05)
+	else:
+		$WinnerCar.scale = Vector2(0.07, 0.07)
+
+func _check_return_combo() -> void:
+	if _returning:
+		return
+	if _player_combo_pressed(1) or _player_combo_pressed(2):
+		_returning = true
+		GlobalData.reset_race(false)
+		get_tree().change_scene_to_file(START_SCENE_PATH)
+
+func _player_combo_pressed(player: int) -> bool:
+	var device := GlobalData.get_player_device(player)
+	if device < 0:
+		return false
+	var rt := Input.get_joy_axis(device, JOY_AXIS_TRIGGER_RIGHT)
+	var lt := Input.get_joy_axis(device, JOY_AXIS_TRIGGER_LEFT)
+	var a_pressed := GlobalData.is_player_face_button_pressed(player, "A")
+	return rt >= TRIGGER_THRESHOLD and lt >= TRIGGER_THRESHOLD and a_pressed
+
+func _play_winner_sound() -> void:
+	if WINNER_SOUND == null:
+		return
+	_winner_audio_player.stream = WINNER_SOUND
+	_winner_audio_player.play()

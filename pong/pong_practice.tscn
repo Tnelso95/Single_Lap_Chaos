@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://fr2r4svq72du"]
+
+[ext_resource type="PackedScene" path="res://pong/pong.tscn" id="1_pong"]
+[ext_resource type="Texture2D" uid="uid://qwh5yjbksqy1" path="res://assests/practice_round.png" id="2_practice"]
+[ext_resource type="Script" uid="uid://dqlbxw4dpingr" path="res://pong/pong_practice.gd" id="3_script"]
+
+[node name="PongPractice" type="Node2D"]
+script = ExtResource("3_script")
+
+[node name="PracticeBanner" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(624, 0)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("2_practice")
+
+[node name="PongGame" parent="." instance=ExtResource("1_pong")]

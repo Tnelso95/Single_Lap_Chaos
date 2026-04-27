@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=3 format=3 uid="uid://bitqwuvfagi5v"]
 
-[ext_resource type="Script" path="res://minigame_intro.gd" id="1_7m8xp"]
-[ext_resource type="Texture2D" path="res://assests/black-screen.png" id="2_bkg"]
+[ext_resource type="Script" uid="uid://6jkr20q7kdu0" path="res://minigame_intro.gd" id="1_7m8xp"]
+[ext_resource type="Texture2D" uid="uid://droskuhl1hn27" path="res://assests/press_A.png" id="2_pressa"]
 
 [node name="MinigameIntro" type="Control"]
 layout_mode = 3
@@ -12,27 +12,27 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7m8xp")
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0.101960786, 0.15294118, 0.1882353, 1)
+
+[node name="Art" type="TextureRect" parent="Background"]
+layout_mode = 0
+offset_top = -24.0
 expand_mode = 1
 stretch_mode = 5
-texture = ExtResource("2_bkg")
 
-[node name="PromptLabel" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 160.0
-offset_top = -66.0
-offset_right = -160.0
-offset_bottom = -18.0
-theme_override_font_sizes/font_size = 24
-text = "Both players press a control to continue"
-horizontal_alignment = 1
+[node name="P1_ready" type="Sprite2D" parent="."]
+position = Vector2(175, 300)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_pressa")
+
+[node name="P2_ready" type="Sprite2D" parent="."]
+position = Vector2(1000, 300)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_pressa")

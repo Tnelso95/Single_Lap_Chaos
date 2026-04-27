@@ -19,6 +19,11 @@ func _on_pressed() -> void:
 	get_tree().change_scene_to_file("res://character_select.tscn")
 	#get_tree().change_scene_to_file("res://leaderboard.tscn")
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventJoypadButton:
+		if GlobalData.is_player_confirm_event(event, 1) or GlobalData.is_player_confirm_event(event, 2):
+			_on_pressed()
+
 func _button_enter() -> void:
 	create_tween().tween_property(self, "scale", hover_scale, 0.25).set_trans(Tween.TRANS_SINE)
 	

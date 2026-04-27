@@ -1,6 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://dsgnka0vgkf4s"]
+[gd_scene load_steps=13 format=3 uid="uid://cltnpton2ogoo"]
 
-[ext_resource type="Script" path="res://leaderboard.gd" id="1_y1kwj"]
+[ext_resource type="Script" uid="uid://cgauebb6yq8bf" path="res://leaderboard.gd" id="1_y1kwj"]
 [ext_resource type="Texture2D" uid="uid://c80lsqvr1frew" path="res://assests/map_with_background.png" id="2_y1kwj"]
 [ext_resource type="Texture2D" uid="uid://bpenru37hqstn" path="res://assests/Yellow Nascar.png" id="3_qjw78"]
 [ext_resource type="Texture2D" uid="uid://b77iaupkag5nw" path="res://assests/Blue F1 Car.png" id="4_qjw78"]
@@ -29,6 +29,13 @@ texture = ExtResource("6_h2hfu")
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_y1kwj")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -1029.0
+offset_top = -561.0
+offset_right = 1073.0
+offset_bottom = 630.0
+color = Color(0.6901961, 0.80784315, 0.8862745, 1)
 
 [node name="Background" type="Sprite2D" parent="."]
 scale = Vector2(2.15, 2.15)

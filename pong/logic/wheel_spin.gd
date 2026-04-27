@@ -24,4 +24,4 @@ func spin_the_wheel() -> void:
 
 func _on_spin_finished() -> void:
 	# Always go to pong after the wheel lands
-	get_tree().change_scene_to_file("res://assests/pong.tscn")
+	get_tree().change_scene_to_file("res://pong/pong.tscn")

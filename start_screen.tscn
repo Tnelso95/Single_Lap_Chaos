@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://xv8cbh5p4hsa"]
+[gd_scene load_steps=5 format=3 uid="uid://b6mcwatpoh776"]
 
 [ext_resource type="Texture2D" uid="uid://ij3bojt300lv" path="res://assests/NEW Start Screen.png" id="1_afy8x"]
 [ext_resource type="Texture2D" uid="uid://d35ny47xxwrcg" path="res://assests/Start Button.png" id="2_pevhg"]
@@ -15,6 +15,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Background2" type="Sprite2D" parent="."]
+position = Vector2(370, 1389)
+scale = Vector2(11.735, 6.9149995)
+texture = ExtResource("1_afy8x")
 
 [node name="Background" type="Sprite2D" parent="."]
 texture = ExtResource("1_afy8x")

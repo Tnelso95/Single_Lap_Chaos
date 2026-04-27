@@ -1,524 +1,64 @@
-[gd_scene load_steps=8 format=3 uid="uid://bwrbx2kuhreko"]
+[gd_scene load_steps=7 format=3 uid="uid://bwrbx2kuhreko"]
 
 [ext_resource type="Script" uid="uid://th4ox02leh13" path="res://dizzy_driving/dizzy_driving.gd" id="1_game"]
-[ext_resource type="Texture2D" uid="uid://bssjytx4y3dbd" path="res://assests/Monaco Track Empty.png" id="2_bg"]
+[ext_resource type="Texture2D" uid="uid://ca0r8xkrn0j4q" path="res://assests/dizzy_driving_map.png" id="2_c3c22"]
 [ext_resource type="PackedScene" path="res://dizzy_driving/dizzy_car.tscn" id="4_car"]
-[ext_resource type="Texture2D" uid="uid://b16gb83i6eyns" path="res://assests/black-screen.png" id="4_kyjxb"]
+[ext_resource type="Texture2D" uid="uid://k6q7v302v05i" path="res://assests/Right Arrow.png" id="5_dyi5b"]
+[ext_resource type="Texture2D" uid="uid://dwrh6fe1vokaa" path="res://assests/5.png" id="9_count5"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_border"]
-size = Vector2(80.18836, 19.343979)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dyi5b"]
-size = Vector2(60.0636, 15.242615)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_finish"]
-size = Vector2(170, 28)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c3c22"]
+size = Vector2(107, 12)
 
 [node name="DizzyDriving" type="Node2D"]
 script = ExtResource("1_game")
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(371.99997, 324)
-scale = Vector2(1.7, 1.7)
-texture = ExtResource("2_bg")
+position = Vector2(577, 324.5)
+scale = Vector2(1.9233332, 1.0816667)
+texture = ExtResource("2_c3c22")
 
 [node name="PlayerOneCar" parent="." instance=ExtResource("4_car")]
-position = Vector2(386, 300)
-rotation = -5.417502
+z_index = 2
+position = Vector2(159, 413.99997)
+rotation = -4.7699847
 scale = Vector2(0.1, 0.1)
 use_player_one_controls = true
 
 [node name="PlayerTwoCar" parent="." instance=ExtResource("4_car")]
-position = Vector2(366.99997, 310)
-rotation = 0.80808747
+z_index = 2
+position = Vector2(117.99998, 414.99997)
+rotation = 1.584759
 scale = Vector2(0.1, 0.1)
 
 [node name="Borders" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders"]
-position = Vector2(334, 275.00003)
-rotation = 2.3335052
-shape = SubResource("RectangleShape2D_border")
+[node name="Inner" type="CollisionPolygon2D" parent="Borders"]
+polygon = PackedVector2Array(163, 323, 169, 344, 174, 364, 183, 384, 194, 409, 206, 427, 216, 444, 235, 457, 260, 463, 292, 468, 319, 471, 350, 472, 377, 475, 401, 477, 426, 477, 447, 478, 452, 486, 445, 498, 425, 513, 408, 529, 395, 542, 385, 556, 385, 565, 393, 571, 415, 577, 442, 576, 469, 576, 504, 577, 530, 571, 558, 561, 582, 544, 597, 526, 604, 504, 601, 480, 594, 459, 585, 446, 563, 440, 545, 435, 520, 425, 502, 408, 494, 383, 492, 359, 499, 328, 511, 307, 529, 288, 545, 274, 561, 263, 584, 250, 610, 239, 630, 233, 655, 228, 680, 225, 703, 221, 723, 219, 749, 218, 774, 216, 798, 214, 821, 212, 847, 209, 868, 205, 889, 199, 909, 191, 928, 182, 944, 169, 959, 155, 968, 142, 968, 130, 962, 124, 952, 124, 943, 117, 935, 106, 922, 102, 904, 102, 885, 102, 866, 101, 844, 101, 828, 100, 810, 99, 793, 96, 772, 90, 750, 88, 728, 87, 701, 87, 675, 83, 651, 78, 626, 72, 602, 73, 572, 75, 548, 76, 523, 83, 502, 92, 482, 103, 458, 109, 430, 111, 404, 110, 378, 104, 360, 98, 337, 91, 314, 90, 288, 98, 275, 113, 262, 138, 257, 162, 261, 184, 264, 210, 260, 237, 250, 252, 224, 262, 193, 271, 170, 280, 158, 291, 158, 309)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Borders"]
-position = Vector2(332.99994, 324)
-rotation = 0.5235988
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
+[node name="Outer" type="CollisionPolygon2D" parent="Borders"]
+polygon = PackedVector2Array(2, 646, 460, 649, 461, 623, 410, 619, 368, 615, 332, 609, 298, 603, 267, 592, 252, 584, 256, 572, 274, 560, 294, 541, 309, 526, 305, 520, 283, 520, 247, 520, 203, 519, 163, 517, 131, 514, 111, 499, 101, 476, 93, 446, 85, 385, 84, 333, 81, 288, 82, 255, 8, 216, 3, 641)
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Borders"]
-position = Vector2(374, 379)
-rotation = 1.0471976
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Borders"]
+polygon = PackedVector2Array(77, 266, 96, 250, 120, 239, 138, 230, 154, 224, 168, 215, 172, 194, 171, 173, 170, 146, 170, 130, 170, 112, 181, 95, 197, 81, 215, 68, 237, 54, 259, 44, 288, 37, 313, 32, 334, 31, 351, 34, 366, 39, 383, 45, 403, 48, 361, -87, 139, -111, 17, 199)
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Borders"]
-position = Vector2(411, 446.99997)
-rotation = 1.0471976
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Borders"]
+polygon = PackedVector2Array(392, 45, 414, 51, 432, 51, 452, 49, 466, 46, 484, 39, 504, 31, 525, 23, 546, 20, 567, 19, 587, 20, 604, 24, 619, 28, 635, 32, 653, 34, 668, 35, 687, 36, 709, 39, 729, 42, 749, 45, 770, 48, 791, 49, 811, 49, 829, 49, 850, 49, 870, 50, 890, 51, 913, 55, 931, 58, 949, 61, 967, 64, 980, 68, 989, 76, 997, 84, 1014, 91, 1032, 96, 1048, 102, 1058, 110, 1061, 132, 1058, 153, 1329, 44, 948, -312, 570, -214)
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="Borders"]
-position = Vector2(451.00006, 520)
-rotation = 1.0471976
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Borders"]
+polygon = PackedVector2Array(458, 626, 483, 629, 500, 631, 518, 631, 538, 630, 556, 625, 577, 619, 595, 610, 610, 599, 631, 586, 647, 574, 659, 562, 666, 555, 678, 548, 688, 540, 690, 523, 691, 505, 689, 487, 688, 469, 688, 449, 686, 434, 679, 426, 662, 417, 639, 406, 621, 397, 599, 384, 586, 369, 577, 355, 577, 345, 587, 332, 597, 320, 614, 307, 629, 297, 648, 290, 667, 283, 683, 279, 701, 276, 719, 271, 736, 266, 762, 263, 786, 261, 805, 260, 825, 258, 848, 255, 869, 255, 889, 252, 910, 248, 931, 244, 953, 242, 969, 237, 988, 226, 1004, 212, 1019, 200, 1037, 186, 1052, 172, 1055, 159, 1066, 140, 1223, 227, 1208, 487, 1100, 668, 760, 739, 509, 702)
 
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="Borders"]
-position = Vector2(505.00006, 569.00006)
-rotation = 0.41887903
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
+[node name="StartBlock" type="StaticBody2D" parent="."]
+position = Vector2(135.5, 383)
 
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="Borders"]
-position = Vector2(581, 601.00006)
-rotation = 0.41887903
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D8" type="CollisionShape2D" parent="Borders"]
-position = Vector2(645, 613)
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D9" type="CollisionShape2D" parent="Borders"]
-position = Vector2(730, 613)
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D10" type="CollisionShape2D" parent="Borders"]
-position = Vector2(813, 604)
-rotation = -0.2617994
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D11" type="CollisionShape2D" parent="Borders"]
-position = Vector2(873, 575.99994)
-rotation = -0.5235988
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D12" type="CollisionShape2D" parent="Borders"]
-position = Vector2(897, 549.99994)
-rotation = -0.7853982
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D13" type="CollisionShape2D" parent="Borders"]
-position = Vector2(931.00006, 514)
-rotation = -0.7853982
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D14" type="CollisionShape2D" parent="Borders"]
-position = Vector2(977, 463.00006)
-rotation = -0.7853982
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D15" type="CollisionShape2D" parent="Borders"]
-position = Vector2(1033.0001, 407.00006)
-rotation = -0.7853982
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D16" type="CollisionShape2D" parent="Borders"]
-position = Vector2(1038, 375.99997)
-rotation = -1.3089969
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D17" type="CollisionShape2D" parent="Borders"]
-position = Vector2(1041, 342)
-rotation = -1.5707964
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D18" type="CollisionShape2D" parent="Borders"]
-position = Vector2(1036, 324)
-rotation = -1.8325958
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D19" type="CollisionShape2D" parent="Borders"]
-position = Vector2(1018, 292.99994)
-rotation = -2.0943952
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D20" type="CollisionShape2D" parent="Borders"]
-position = Vector2(995.0001, 270.99997)
-rotation = -2.3561945
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D21" type="CollisionShape2D" parent="Borders"]
-position = Vector2(953, 244.00003)
-rotation = -2.6179938
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D22" type="CollisionShape2D" parent="Borders"]
-position = Vector2(937, 244)
-rotation = -3.1415927
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D23" type="CollisionShape2D" parent="Borders"]
-position = Vector2(897, 296)
-rotation = -1.5707964
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D24" type="CollisionShape2D" parent="Borders"]
-position = Vector2(897, 213)
-rotation = -1.5707964
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D25" type="CollisionShape2D" parent="Borders"]
-position = Vector2(875, 182)
-rotation = -2.6179938
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D26" type="CollisionShape2D" parent="Borders"]
-position = Vector2(832, 171.00002)
-rotation = -2.8797934
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D27" type="CollisionShape2D" parent="Borders"]
-position = Vector2(784.00006, 165.00002)
-rotation = -3.1415927
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D28" type="CollisionShape2D" parent="Borders"]
-position = Vector2(702.99994, 176)
-rotation = -3.403392
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D29" type="CollisionShape2D" parent="Borders"]
-position = Vector2(659, 197.00002)
-rotation = -3.6651917
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D30" type="CollisionShape2D" parent="Borders"]
-position = Vector2(645.00006, 214)
-rotation = -3.926991
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D31" type="CollisionShape2D" parent="Borders"]
-position = Vector2(645, 237)
-rotation = -4.712389
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D32" type="CollisionShape2D" parent="Borders"]
-position = Vector2(659, 263.00006)
-rotation = -5.2359877
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D33" type="CollisionShape2D" parent="Borders"]
-position = Vector2(645, 305)
-rotation = -6.2831855
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D34" type="CollisionShape2D" parent="Borders"]
-position = Vector2(635.99994, 302.99997)
-rotation = -6.021386
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D35" type="CollisionShape2D" parent="Borders"]
-position = Vector2(620, 309)
-rotation = -6.021386
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D36" type="CollisionShape2D" parent="Borders"]
-position = Vector2(585, 287.00003)
-rotation = -5.759587
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D37" type="CollisionShape2D" parent="Borders"]
-position = Vector2(533, 239)
-rotation = -5.4977875
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D38" type="CollisionShape2D" parent="Borders"]
-position = Vector2(479, 170.00003)
-rotation = -5.2359877
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D39" type="CollisionShape2D" parent="Borders"]
-position = Vector2(430, 113)
-rotation = -5.4977875
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D40" type="CollisionShape2D" parent="Borders"]
-position = Vector2(382, 73.000015)
-rotation = -5.4977875
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D41" type="CollisionShape2D" parent="Borders"]
-position = Vector2(350.00003, 98.000015)
-rotation = -3.926991
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D42" type="CollisionShape2D" parent="Borders"]
-position = Vector2(358.00003, 149.00002)
-rotation = -5.4977875
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D43" type="CollisionShape2D" parent="Borders"]
-position = Vector2(398.00003, 185.00003)
-rotation = -5.4977875
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D44" type="CollisionShape2D" parent="Borders"]
-position = Vector2(443.00003, 244.00002)
-rotation = -5.2359877
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D45" type="CollisionShape2D" parent="Borders"]
-position = Vector2(491, 306.00006)
-rotation = -5.4977875
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D46" type="CollisionShape2D" parent="Borders"]
-position = Vector2(549, 362)
-rotation = -5.4977875
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D47" type="CollisionShape2D" parent="Borders"]
-position = Vector2(399, 275.00003)
-rotation = -5.759587
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D48" type="CollisionShape2D" parent="Borders"]
-position = Vector2(433, 306)
-rotation = -5.4977875
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D49" type="CollisionShape2D" parent="Borders"]
-position = Vector2(448, 334)
-rotation = -5.2359877
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D50" type="CollisionShape2D" parent="Borders"]
-position = Vector2(486, 415.99997)
-rotation = -5.2359877
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D52" type="CollisionShape2D" parent="Borders"]
-position = Vector2(532, 476)
-rotation = -5.4977875
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D53" type="CollisionShape2D" parent="Borders"]
-position = Vector2(591, 521)
-rotation = -5.759587
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D54" type="CollisionShape2D" parent="Borders"]
-position = Vector2(655, 544)
-rotation = -6.021386
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D55" type="CollisionShape2D" parent="Borders"]
-position = Vector2(721, 546.99994)
-rotation = -6.2831855
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D56" type="CollisionShape2D" parent="Borders"]
-position = Vector2(774.00006, 531.99994)
-rotation = -6.544985
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D57" type="CollisionShape2D" parent="Borders"]
-position = Vector2(838.00006, 502)
-rotation = -6.806784
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D58" type="CollisionShape2D" parent="Borders"]
-position = Vector2(886, 455)
-rotation = -7.0685835
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D59" type="CollisionShape2D" parent="Borders"]
-position = Vector2(942.00006, 397.00006)
-rotation = -7.0685835
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D60" type="CollisionShape2D" parent="Borders"]
-position = Vector2(941, 369)
-rotation = -7.5921826
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D61" type="CollisionShape2D" parent="Borders"]
-position = Vector2(919, 402)
-rotation = -7.3303833
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D62" type="CollisionShape2D" parent="Borders"]
-position = Vector2(900, 404.00006)
-rotation = -6.806784
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D63" type="CollisionShape2D" parent="Borders"]
-position = Vector2(860, 404)
-rotation = -6.2831855
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D64" type="CollisionShape2D" parent="Borders"]
-position = Vector2(827, 383.00006)
-rotation = -5.759587
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D65" type="CollisionShape2D" parent="Borders"]
-position = Vector2(828, 365.99997)
-rotation = -5.2359877
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D66" type="CollisionShape2D" parent="Borders"]
-position = Vector2(817.99994, 330)
-rotation = -4.9741883
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D67" type="CollisionShape2D" parent="Borders"]
-position = Vector2(824, 304)
-rotation = -4.712389
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D68" type="CollisionShape2D" parent="Borders"]
-position = Vector2(823.00006, 287)
-rotation = -4.4505897
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D69" type="CollisionShape2D" parent="Borders"]
-position = Vector2(795, 247)
-rotation = -3.1415927
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D70" type="CollisionShape2D" parent="Borders"]
-position = Vector2(754, 247)
-rotation = -3.1415927
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D71" type="CollisionShape2D" parent="Borders"]
-position = Vector2(736, 282)
-rotation = -5.2359877
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D72" type="CollisionShape2D" parent="Borders"]
-position = Vector2(747.99994, 323.99997)
-rotation = -4.9741883
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D73" type="CollisionShape2D" parent="Borders"]
-position = Vector2(737.00006, 354)
-rotation = -4.4505897
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D74" type="CollisionShape2D" parent="Borders"]
-position = Vector2(715.00006, 378)
-rotation = -3.926991
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D75" type="CollisionShape2D" parent="Borders"]
-position = Vector2(682, 391.00003)
-rotation = -3.403392
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D76" type="CollisionShape2D" parent="Borders"]
-position = Vector2(619, 393)
-rotation = -3.1415927
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D77" type="CollisionShape2D" parent="Borders"]
-position = Vector2(588, 380)
-rotation = -2.6179938
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D51" type="CollisionShape2D" parent="Borders"]
-position = Vector2(457, 360.00003)
-rotation = -5.2359877
-scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_border")
-
-[node name="CollisionShape2D78" type="CollisionShape2D" parent="Borders"]
-position = Vector2(957.3752, 346.15335)
-rotation = 0.7853982
-scale = Vector2(0.9999999, 0.9999999)
-shape = SubResource("RectangleShape2D_dyi5b")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StartBlock"]
+position = Vector2(-3.5, 6)
+shape = SubResource("RectangleShape2D_c3c22")
 
 [node name="FinishLine" type="Area2D" parent="."]
-position = Vector2(406, 136.99998)
-rotation = -0.80808747
-scale = Vector2(0.3, 0.1)
+position = Vector2(132, 367)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FinishLine"]
-shape = SubResource("RectangleShape2D_finish")
-
-[node name="FinishLineMarker" type="ColorRect" parent="FinishLine"]
-offset_left = -85.0
-offset_top = -14.0
-offset_right = 85.0
-offset_bottom = 14.0
-color = Color(1, 1, 1, 0.3)
-
-[node name="Sprite2D" type="Sprite2D" parent="FinishLine"]
-position = Vector2(3.350818e-05, 0.0003260524)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_kyjxb")
+shape = SubResource("RectangleShape2D_c3c22")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 324)
@@ -526,11 +66,42 @@ position = Vector2(576, 324)
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="InputKeyLabel" type="Label" parent="UI"]
-offset_left = 20.0
-offset_top = 588.0
-offset_right = 520.0
-offset_bottom = 620.0
+modulate = Color(0.0056611504, 0.0056611514, 0.00566115, 1)
+offset_left = 695.0
+offset_top = 527.0
+offset_right = 1195.0
+offset_bottom = 582.0
 theme_override_font_sizes/font_size = 18
-text = "Inputs : Throttle, Reverse, Left, Right"
+text = "
+Inputs: (RT) Throttle, (LT) Reverse, (JoyStick) Steering"
+metadata/_edit_use_anchors_ = true
 
-[connection signal="body_entered" from="FinishLine" to="." method="_on_finish_line_body_entered"]
+[node name="ShuffleCountdown" type="Sprite2D" parent="."]
+z_index = 10
+position = Vector2(90, 562.00006)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("9_count5")
+
+[node name="Arrow" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(205, 486)
+rotation = 0.17453292
+texture = ExtResource("5_dyi5b")
+
+[node name="Arrow4" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(609.99994, 423.99994)
+rotation = -2.4940755
+texture = ExtResource("5_dyi5b")
+
+[node name="Arrow5" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(964, 200.99995)
+rotation = -0.87441
+texture = ExtResource("5_dyi5b")
+
+[node name="Arrow6" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(555, 48.000015)
+rotation = -3.3702307
+texture = ExtResource("5_dyi5b")

@@ -23,8 +23,10 @@ const PLAYER_TWO_KEYS := {
 	KEY_DOWN: Direction.DOWN,
 	KEY_LEFT: Direction.LEFT,
 }
+const STICK_DEADZONE := 0.5
 const LEADERBOARD_SCENE_PATH := "res://leaderboard.tscn"
 const RETURN_DELAY := 2.0
+const PRACTICE_BANNER_TEXTURE: Texture2D = preload("res://assests/practice_round.png")
 
 @export var step_display_time: float = 0.7
 @export var step_pause_time: float = 0.2
@@ -44,10 +46,13 @@ var p2_failed := false
 var p1_done := false
 var p2_done := false
 var returning_to_leaderboard := false
+var practice_mode := false
 
 @onready var p1_car_sprite: Sprite2D = $PlayerOneCar
 @onready var p2_car_sprite: Sprite2D = $PlayerTwoCar
 @onready var round_label: Label = $UI/RoundLabel
+@onready var p1_chain_label: Label = get_node_or_null("UI/PlayerOneLabel") as Label
+@onready var p2_chain_label: Label = get_node_or_null("UI/PlayerTwoLabel") as Label
 @onready var p1_sequence_label: Label = get_node_or_null("UI/PlayerOneSequenceLabel") as Label
 @onready var p2_sequence_label: Label = get_node_or_null("UI/PlayerTwoSequenceLabel") as Label
 @onready var prompt_label: Label = $UI/PromptLabel
@@ -58,14 +63,28 @@ var returning_to_leaderboard := false
 
 func _ready() -> void:
 	randomize()
+	practice_mode = GlobalData.is_practice_round()
 	_apply_car_visuals()
 	prompt_label.visible = false
+	if practice_mode:
+		if round_label:
+			round_label.visible = false
+		if p1_chain_label:
+			p1_chain_label.visible = false
+		if p2_chain_label:
+			p2_chain_label.visible = false
+		_set_label_text(p1_sequence_label, "")
+		_set_label_text(p2_sequence_label, "")
+		_show_practice_banner()
 	_start_new_game()
 
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo:
 		if game_over and (event.keycode == KEY_ENTER or event.keycode == KEY_KP_ENTER):
+			_return_to_leaderboard()
+	if event is InputEventJoypadButton and event.pressed:
+		if game_over and (GlobalData.is_player_confirm_event(event, 1) or GlobalData.is_player_confirm_event(event, 2)):
 			_return_to_leaderboard()
 
 
@@ -77,6 +96,13 @@ func _unhandled_input(event: InputEvent) -> void:
 			_handle_player_input(1, PLAYER_ONE_KEYS[event.keycode])
 		elif PLAYER_TWO_KEYS.has(event.keycode) and not p2_failed and not p2_done:
 			_handle_player_input(2, PLAYER_TWO_KEYS[event.keycode])
+	elif event is InputEventJoypadButton and event.pressed:
+		var p1_dir := _direction_for_player_event(1, event)
+		var p2_dir := _direction_for_player_event(2, event)
+		if p1_dir != -1 and not p1_failed and not p1_done:
+			_handle_player_input(1, p1_dir)
+		elif p2_dir != -1 and not p2_failed and not p2_done:
+			_handle_player_input(2, p2_dir)
 
 
 func _start_new_game() -> void:
@@ -173,12 +199,15 @@ func _handle_player_input(player: int, input_direction: int) -> void:
 		else:
 			p2_failed = true
 	else:
+		GlobalData.rumble_player(player, 0.35, 0.55, 0.08)
 		if player == 1:
 			p1_index += 1
 			p1_done = p1_index >= p1_sequence.size()
 		else:
 			p2_index += 1
 			p2_done = p2_index >= p2_sequence.size()
+		if (player == 1 and p1_done) or (player == 2 and p2_done):
+			GlobalData.rumble_player(player, 0.55, 0.9, 0.14)
 
 	_update_status_labels()
 	_resolve_round_state()
@@ -238,8 +267,12 @@ func _end_game(winner: int, result_text: String) -> void:
 	round_active = false
 	showing_sequence = false
 	game_over = true
-	if winner != 0:
+	if not practice_mode and winner != 0:
 		GlobalData.award_win(winner)
+	if practice_mode:
+		await get_tree().create_timer(0.25).timeout
+		_start_actual_minigame()
+		return
 	result_label.visible = true
 	result_label.text = result_text
 	prompt_label.text = "Returning to leaderboard..."
@@ -265,3 +298,36 @@ func _apply_car_visual(car_sprite: Sprite2D, car_id: Variant) -> void:
 		return
 	car_sprite.texture = load(texture_path)
 	car_sprite.scale = GlobalData.get_car_photo_memory_scale(car_id)
+
+func _direction_for_player_event(player: int, event: InputEvent) -> int:
+	var device := GlobalData.get_player_device(player)
+	if device < 0:
+		return -1
+	if event is InputEventJoypadButton:
+		var button_event := event as InputEventJoypadButton
+		if button_event.device != device or not button_event.pressed:
+			return -1
+		if button_event.button_index == JOY_BUTTON_DPAD_UP:
+			return Direction.UP
+		if button_event.button_index == JOY_BUTTON_DPAD_RIGHT:
+			return Direction.RIGHT
+		if button_event.button_index == JOY_BUTTON_DPAD_DOWN:
+			return Direction.DOWN
+		if button_event.button_index == JOY_BUTTON_DPAD_LEFT:
+			return Direction.LEFT
+	return -1
+
+func _show_practice_banner() -> void:
+	var banner := Sprite2D.new()
+	banner.name = "PracticeBanner"
+	banner.texture = PRACTICE_BANNER_TEXTURE
+	banner.position = Vector2(576, 42)
+	banner.scale = Vector2(1.55, 1.55)
+	$UI.add_child(banner)
+
+func _start_actual_minigame() -> void:
+	if returning_to_leaderboard:
+		return
+	returning_to_leaderboard = true
+	GlobalData.complete_practice_round()
+	get_tree().change_scene_to_file(GlobalData.get_actual_minigame_scene_path())
